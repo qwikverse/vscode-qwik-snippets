@@ -1,0 +1,27 @@
+{
+  "name": "vscode-qwik-snippets",
+  "displayName": "Qwik Snippets (Version 0.11.0)",
+  "description": "Code Snippets for Qwik Framework",
+  "version": "0.11.0",
+  "icon": "images/qwik.png",
+  "galleryBanner": {
+    "color": "#0273D4",
+    "theme": "dark"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "engines": {
+    "vscode": "^1.72.0"
+  },
+  "categories": [
+    "Snippets",
+    "Qwik"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./snippets/typescript.code-snippets"
+      }
+    ]
+  }
+}
