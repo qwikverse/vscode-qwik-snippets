@@ -1,26 +1,67 @@
 {
   "name": "vscode-qwik-snippets",
-  "displayName": "Qwik Snippets (Version 0.11.0)",
+  "publisher": "johnreemar",
+  "displayName": "Qwik and Qwik City Snippets",
   "description": "Code Snippets for Qwik Framework",
-  "version": "0.11.0",
-  "icon": "./images/qwik.png",
+  "version": "0.1.1",
+  "icon": "assets/qwik.png",
   "galleryBanner": {
     "color": "#0273D4",
     "theme": "dark"
   },
-  "license": "SEE LICENSE IN LICENSE.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qwik-design/vscode-qwik-snippets"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.72.0"
   },
   "categories": [
     "Snippets",
-    "Qwik"
+    "Programming Languages"
   ],
+  "keywords": [
+    "javascript",
+    "snippet",
+    "qwik",
+    "qwik city"
+],
+"bugs": {
+    "url": "https://github.com/qwik-design/vscode-qwik-snippets/issues",
+    "email": "jrddelarosa@gmail.com"
+},
+  "scripts": {
+    "package": "npx vsce package",
+    "publish": "npx vsce publish",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ."
+  },
   "contributes": {
+    "languages": [
+      {
+          "id": "qwik",
+          "aliases": [
+              "Qwik",
+              "qwik"
+          ],
+          "extensions": [
+              ".tsx"
+          ]
+      }
+  ],
     "snippets": [
       {
         "language": "typescript",
         "path": "./snippets/typescript.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/qwik.code-snippets"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/qwik-cty.code-snippets"
       }
     ]
   }
