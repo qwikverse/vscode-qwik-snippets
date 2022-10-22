@@ -1,0 +1,10 @@
+{
+    "Mitosis xxx": {
+        "prefix": "qm-xxx",
+        "description": "Description",
+        "body": [
+          "sample body",
+          "}"
+        ]
+      }
+}

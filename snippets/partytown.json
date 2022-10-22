@@ -1,0 +1,10 @@
+{
+  "Partytown xxx": {
+      "prefix": "qp-xxx",
+      "description": "Description",
+      "body": [
+        "sample body",
+        "}"
+      ]
+    }
+}

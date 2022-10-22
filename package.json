@@ -1,7 +1,7 @@
 {
   "name": "vscode-qwik-snippets",
   "publisher": "johnreemar",
-  "displayName": "Qwik and Qwik City Snippets",
+  "displayName": "Qwik, Qwik City, Mitosis, & Partytown Snippets",
   "description": "Code Snippets for Qwik Framework",
   "version": "0.1.3",
   "icon": "assets/qwik.png",
@@ -53,15 +53,35 @@
     "snippets": [
       {
         "language": "typescript",
-        "path": "./snippets/typescript.json"
+        "path": "./snippets/qwik.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/qwik.json"
       },
       {
         "language": "typescript",
-        "path": "./snippets/qwik.code-snippets"
+        "path": "./snippets/qwik-city.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/qwik-city.json"
       },
       {
         "language": "typescript",
-        "path": "./snippets/qwik-cty.code-snippets"
+        "path": "./snippets/mitosis.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/mitosis.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/partytown.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/partytown.json"
       }
     ]
   }

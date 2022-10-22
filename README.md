@@ -22,11 +22,29 @@ Type part of a snippet, press `enter`, and the snippet unfolds.
 
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to activate snippets from within the editor.
 
-### TypeScript Qwik Snippets
+###  Qwik Snippets
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `a-component`                | component                                                            |
+| `q-xxx`                | component                                                            |
+
+###  Qwik City Snippets
+
+| Snippet                      | Purpose                                                              |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `qc-xxx`                | WIP                                                            |
+
+###  Mitosis Snippets
+
+| Snippet                      | Purpose                                                              |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `qm-xxx`                | WIP                                                            |
+
+###  Partytown Snippets
+
+| Snippet                      | Purpose                                                              |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `qp-xxx`                | WIP                                                            |
 
 
 
