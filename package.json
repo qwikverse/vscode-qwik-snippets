@@ -3,7 +3,7 @@
   "publisher": "johnreemar",
   "displayName": "Qwik and Qwik City Snippets",
   "description": "Code Snippets for Qwik Framework",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "icon": "assets/qwik.png",
   "galleryBanner": {
     "color": "#0273D4",
@@ -26,11 +26,11 @@
     "snippet",
     "qwik",
     "qwik city"
-],
-"bugs": {
+  ],
+  "bugs": {
     "url": "https://github.com/qwik-design/vscode-qwik-snippets/issues",
     "email": "jrddelarosa@gmail.com"
-},
+  },
   "scripts": {
     "package": "npx vsce package",
     "publish": "npx vsce publish",
@@ -40,16 +40,16 @@
   "contributes": {
     "languages": [
       {
-          "id": "qwik",
-          "aliases": [
-              "Qwik",
-              "qwik"
-          ],
-          "extensions": [
-              ".tsx"
-          ]
+        "id": "qwik",
+        "aliases": [
+          "Qwik",
+          "qwik"
+        ],
+        "extensions": [
+          ".tsx"
+        ]
       }
-  ],
+    ],
     "snippets": [
       {
         "language": "typescript",
