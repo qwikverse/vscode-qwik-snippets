@@ -1,12 +1,20 @@
-# Qwik TypeScript Snippets for VS Code
 
-**Updated for Angular 13.0.0 release**
+<p align="center">
+  <br>
+  <img width="400" src="./assets/qwik-snippets.png">
+  <br>
+</p>
 
-This extension for Visual Studio Code adds snippets for Angular for TypeScript and HTML.
+<h1 align='center'>Qwik Snippets</h1>
 
-![Use Extension](images/use-extension.gif)
+<div align='center'>
+Qwik and Qwik City Snippets for <a href='https://github.com/BuilderIO/qwik'>Qwik</a>.
+<br><br>
+<a href='http://badge.fury.io/js/qwik-snippets'>
+<img src='https://badge.fury.io/js/qwik-snippets.svg' alt='Qwik Snippets'>
+</a>
+</div>
 
-See the [CHANGELOG](CHANGELOG.md) for the latest changes
 
 ## Usage
 
