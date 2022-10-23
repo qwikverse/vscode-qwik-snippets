@@ -31,7 +31,7 @@
       "",
 			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
 			"  return (",
-			"    <${2:div}div>",
+			"    <${2:div}>",
 			"      <$3 />",
 			"    </${2}>",
 			"  );",
@@ -50,7 +50,7 @@
       "",
 			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
 			"  return (",
-			"    <${2:div}div>",
+			"    <${2:div}>",
 			"      <$3 />",
 			"    </${2}>",
 			"  );",
@@ -103,7 +103,7 @@
 	},
 	"Qwik signal": {
 		"scope": "javascriptreact,typescriptreact",
-		"prefix": "q:useSignal",
+		"prefix": "q-useSignal",
 		"description": "useSignal() declaration",
 		"body": [
 			"const ${1:foo} = useSignal($2);",
@@ -123,7 +123,7 @@
 	},
 	"$ hook": {
 		"scope": "javascriptreact,typescriptreact",
-		"prefix": "q:$",
+		"prefix": "q-$",
 		"description": "$() function hook",
 		"body": [
 			"$(() => {",
@@ -134,7 +134,7 @@
 	},
 	"useClientEffect": {
 		"scope": "javascriptreact,typescriptreact",
-		"prefix": "q:useClientEffect",
+		"prefix": "q-useClientEffect",
 		"description": "useClientEffect$() function hook",
 		"body": [
 			"useClientEffect$(({ track }) => {",
@@ -145,7 +145,7 @@
 	},
 	"useWatch": {
 		"scope": "javascriptreact,typescriptreact",
-		"prefix": "q:useWatch",
+		"prefix": "q-useWatch",
 		"description": "useWatch$() function hook",
 		"body": [
 			"useWatch$(({ track }) => {",
@@ -157,7 +157,7 @@
 	},
 	"useResource": {
 		"scope": "javascriptreact,typescriptreact",
-		"prefix": "q:useResource",
+		"prefix": "q-useResource",
 		"description": "useResource$() declaration",
 		"body": [
 			"const $1 = useResource$(({ track, cleanup }) => {",
@@ -168,7 +168,7 @@
 	},
 	"useServerMount": {
 		"scope": "javascriptreact,typescriptreact",
-		"prefix": "q:useServerMount",
+		"prefix": "q-useServerMount",
 		"description": "useServerMount$() function hook",
 		"body": [
 			"useServerMount$(() => {",
