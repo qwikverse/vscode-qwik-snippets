@@ -39,19 +39,6 @@
     "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ."
   },
   "contributes": {
-    "languages": [
-      {
-        "id": "qwik",
-        "aliases": [
-          "Qwik",
-          "qwik"
-        ],
-        "extensions": [
-          ".tsx",
-          ".mdx"
-        ]
-      }
-    ],
     "snippets": [
       {
         "language": "typescript",
