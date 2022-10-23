@@ -54,7 +54,7 @@ Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Q
 
 This extension for Visual Studio Code adds snippets for Qwik for TypeScript and MDX.
 
-![Use Extension](images/use-extension.gif)
+![Use Extension](assets/use-extension.gif)
 
 See the [CHANGELOG](CHANGELOG.md) for the latest changes
 

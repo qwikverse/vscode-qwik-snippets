@@ -18,7 +18,7 @@
       "",
       "",
 			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}:component} = component$(() => {",
-      "  const ${2:name} = '${3:Qwik};",
+      "  const ${2:name} = '${3:Qwik}';",
 			"  return <${4:div}>Hello {${2}}!</$4>",
 			"});"
 		]
