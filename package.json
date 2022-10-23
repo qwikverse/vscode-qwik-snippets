@@ -62,6 +62,14 @@
         "path": "./snippets/qwik.json"
       },
       {
+        "language": "javascriptreact",
+        "path": "./snippets/qwik.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "/snippets/qwik.json"
+      },
+      {
         "language": "typescript",
         "path": "./snippets/qwik-city.json"
       },
