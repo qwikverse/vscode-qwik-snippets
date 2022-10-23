@@ -3,7 +3,7 @@
   "publisher": "johnreemar",
   "displayName": "Qwik, Qwik City, Mitosis, & Partytown Snippets",
   "description": "Code Snippets for Builder Open Source Ecosystem",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "icon": "assets/qwik.png",
   "galleryBanner": {
     "color": "#020b3b",
@@ -33,7 +33,8 @@
   },
   "scripts": {
     "package": "npx vsce package",
-    "publish": "npx vsce publish",
+    "publish": "npm run changelog & npx vsce publish",
+    "changelog": "auto-changelog",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ."
   },
@@ -85,5 +86,8 @@
         "path": "./snippets/partytown.json"
       }
     ]
+  },
+  "devDependencies": {
+    "auto-changelog": "^2.4.0"
   }
 }
