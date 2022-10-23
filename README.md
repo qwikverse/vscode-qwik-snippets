@@ -8,7 +8,7 @@
 <h1 align='center'>Qwik Snippets</h1>
 
 <div align='center'>
-Qwik and Qwik City Snippets for <a href='https://github.com/BuilderIO/qwik'>Qwik</a>.
+Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Qwik</a>.
 <br><br>
 <a href='http://badge.fury.io/js/vscode-qwik-snippets'>
 <img src='https://badge.fury.io/js/vscode-qwik-snippets.svg' alt='Qwik Snippets'>

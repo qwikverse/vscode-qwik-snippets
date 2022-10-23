@@ -19,7 +19,7 @@
       "",
 			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
       "  const ${2:name} = '${3:Qwik};",
-			"  return <${4:div}>Hello {${2}!</$4>",
+			"  return <${4:div}>Hello {${2}}!</$4>",
 			"});"
 		]
 	},
@@ -38,7 +38,7 @@
 			"});",
       "",
 			"export const ${3:Child} = component$(() => {",
-			"  return <${2:div}>${3:Hello Qwik Child Component!}</$2>",
+			"  return <${4:div}>${5:Hello Qwik Child Component!}</$4>",
 			"};"
 		]
 	},
