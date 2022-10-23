@@ -3,7 +3,7 @@
   "publisher": "johnreemar",
   "displayName": "Qwik, Qwik City, Mitosis, & Partytown Snippets",
   "description": "Code Snippets for Builder Open Source Ecosystem",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "icon": "assets/qwik.png",
   "galleryBanner": {
     "color": "#020b3b",
@@ -67,6 +67,10 @@
       },
       {
         "language": "typescriptreact",
+        "path": "/snippets/qwik.json"
+      },
+      {
+        "language": "mdx",
         "path": "/snippets/qwik.json"
       },
       {
