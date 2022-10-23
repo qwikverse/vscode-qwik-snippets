@@ -2,11 +2,11 @@
   "name": "vscode-qwik-snippets",
   "publisher": "johnreemar",
   "displayName": "Qwik, Qwik City, Mitosis, & Partytown Snippets",
-  "description": "Code Snippets for Qwik Framework",
+  "description": "Code Snippets for Builder Open Source Ecosystem",
   "version": "0.1.4",
   "icon": "assets/qwik.png",
   "galleryBanner": {
-    "color": "#0273D4",
+    "color": "#020b3b",
     "theme": "dark"
   },
   "repository": {
@@ -46,7 +46,8 @@
           "qwik"
         ],
         "extensions": [
-          ".tsx"
+          ".tsx",
+          ".mdx"
         ]
       }
     ],

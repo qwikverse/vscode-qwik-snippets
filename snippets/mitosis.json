@@ -3,8 +3,7 @@
         "prefix": "qm-xxx",
         "description": "Description",
         "body": [
-          "sample body",
-          "}"
+          "sample body"
         ]
       }
 }

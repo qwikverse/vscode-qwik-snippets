@@ -1,19 +1,72 @@
 {
-	"Qwik component basic": {
-		"scope": "javascriptreact,typescriptreact",
-		"prefix": "q:component",
-		"description": "Basic Qwik component",
+	"Qwik Component": {
+		"prefix": "q-component",
+		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element.",
 		"body": [
+      "import { component$ } from '@builder.io/qwik';",
+      "",
 			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
-			"  return <${2:div}>$4</$2>",
+			"  return <${2:div}>${3:Hello Qwik!}</$2>",
 			"});"
 		]
 	},
-	"Qwik component with props": {
-		"scope": "typescriptreact",
-		"prefix": "q:component w/props",
-		"description": "Qwik component with props",
+	"Qwik Component with binding": {
+		"prefix": "q-component-binding",
+		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. The purpose of components is to merge data with the JSX template. You use the {expression} to inject data into a template. Expressions are placed either as a text node or attribute on an element.",
 		"body": [
+      "import { component$ } from '@builder.io/qwik';",
+      "",
+      "",
+			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
+      "  const ${2:name} = '${3:Qwik};",
+			"  return <${4:div}>Hello {${2}!</$4>",
+			"});"
+		]
+	},
+  "Qwik Composing Components": {
+		"prefix": "q-component-compose",
+		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. Components are composed together to build applications.",
+		"body": [
+      "import { component$ } from '@builder.io/qwik';",
+      "",
+			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
+			"  return (",
+			"    <${2:div}div>",
+			"      <$3 />",
+			"    </${2}>",
+			"  );",
+			"});",
+      "",
+			"export const ${3:Child} = component$(() => {",
+			"  return <${2:div}>${3:Hello Qwik Child Component!}</$2>",
+			"};"
+		]
+	},
+  "Qwik Component with Inline Component": {
+		"prefix": "q-component-inline",
+		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. If you want to ensure a component loads with another component, you create an inline component. Inline components load as a part of the parent component and are equivalent to how most other frameworks deal with components. ",
+		"body": [
+      "import { component$ } from '@builder.io/qwik';",
+      "",
+			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
+			"  return (",
+			"    <${2:div}div>",
+			"      <$3 />",
+			"    </${2}>",
+			"  );",
+			"});",
+      "",
+			"export const ${3:Inline} = () => {",
+			"  return <${4:div}>${5:Hello Qwik Inline Component!}</$4>",
+			"};"
+		]
+	},
+	"Qwik Component with props": {
+		"prefix": "q-component with props",
+		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. ",
+		"body": [
+      "import { component$, useSignal } from '@builder.io/qwik';",
+      "",
 			"export interface ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}Props {",
 			"  $2",
 			"}",
@@ -21,7 +74,27 @@
 			"export const $1 = component$<$1Props>((props) => {",
 			"  const ${2:count} = useSignal(0);",
 			"  return (",
-			"    <${3:div} on${4:Click}$={(ev) => {$5}}>",
+			"    <${3:div} on${4:Click}$={(event) => {$5}}>",
+			"      $6",
+			"    </${3}>",
+			"  );",
+			"});"
+		]
+	},
+	"Qwik component with store and props": {
+		"prefix": "q-component with store and props",
+		"description": "Qwik component with props",
+		"body": [
+      "import { component$, useSignal } from '@builder.io/qwik';",
+      "",
+			"export interface ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}Props {",
+			"  $2",
+			"}",
+			"",
+			"export const $1 = component$<$1Props>((props) => {",
+			"  const ${2:count} = useSignal(0);",
+			"  return (",
+			"    <${3:div} on${4:Click}$={(event) => {$5}}>",
 			"      $6",
 			"    </${3}>",
 			"  );",
