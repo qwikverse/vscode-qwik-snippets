@@ -14,7 +14,7 @@
 		"prefix": "q-bind",
 		"description": "Add binding expression to element",
 		"body": [
-			"{1:data.property}"
+			"${1:data.property}"
 		]
 	},
 	"Qwik Component with binding": {
