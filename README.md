@@ -69,8 +69,8 @@ Type part of a snippet, press `enter`, and the snippet unfolds.
 
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to activate snippets from within the editor.
 
-###  Qwik Snippets
-#### Components
+##  **Qwik Snippets**
+- ### Components
 > Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element.
 
 | Snippet                      | Purpose                                                              |
@@ -80,94 +80,96 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | `q-component-compose`        | Qwik Composing Components with child component                       |
 | `q-component-inline`         | Qwik Component with inline component                                 |
 
-#### Events
+- ### Events
 > Declaring, binding, and triggering events.
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
-#### Stores
+| `q-useOn`         | Register a listener on the current component's host elementcomponent                                 |
+| `q-useOnDocument`         | Register a listener on document                                |
+| `q-useOnWindow`         | Register a listener on window                                |
+- ### Stores
 
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-#### Props
+- ### Props
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-#### Reactivity
+- ### Reactivity
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-#### Context
+- ### Context
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-#### Hooks
+- ### Hooks
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-#### Projection
+- ### Projection
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-#### Styling
+- ### Styling
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-#### Optimizer
+- ### Optimizer
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-#### Composing New APIs
+- ### Composing New APIs
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-###  Qwik City Snippets
-#### Routing
+##  **Qwik City Snippets**
+- ### Routing
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-#### Layout
-| Snippet                      | Purpose                                                              |
-| ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
-
-#### Data
-| Snippet                      | Purpose                                                              |
-| ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
-#### Authoring Content
+- ### Layout
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
 
-#### Integrations
+- ### Data
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-#### Prefetching
+- ### Authoring Content
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-#### Static Site Generation
+
+- ### Integrations
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-#### Head
+- ### Prefetching
+| Snippet                      | Purpose                                                              |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `q-component`                | WIP                                                 |
+- ### Static Site Generation
+| Snippet                      | Purpose                                                              |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `q-component`                | WIP                                                 |
+- ### Head
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
 
 
-###  Mitosis Snippets
+##  **Mitosis Snippets**
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `qm-xxx`                | WIP                                                            |
 
-###  Partytown Snippets
+##  **Partytown Snippets**
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
