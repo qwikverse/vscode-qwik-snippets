@@ -21,7 +21,6 @@ Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Q
 <!-- - [Qwik Essentials](#qwik-essentials) -->
 - [Usage](#usage)
 - [Qwik Snippets](#qwik-snippets)
-  - [Components](#components)
   - [Events](#events)
   - [Stores](#stores)
   - [Props](#props)
@@ -29,7 +28,6 @@ Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Q
   - [Context](#context)
   - [Hooks](#hooks)
   - [Projection](#projection)
-  - [Styling](#styling)
   - [Optimizer](#optimizer)
   - [Composing New APIs](#composing-new-apis)
 - [Qwik City Snippets](#qwik-city-snippets)
@@ -45,12 +43,13 @@ Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Q
 - [Partytown Snippets](#partytown-snippets)
 - [Installation](#installation)
 - [Contributing](#contributing)
+- [Related Projects](#related-projects)
 - [Issues](#issues)
 
 </details>
 <br>
 
-**Updated for Qwik 13.0.0 release**
+**Updated for Qwik 0.11.1 release**
 
 This extension for Visual Studio Code adds snippets for Qwik for TypeScript and MDX.
 
@@ -63,14 +62,18 @@ See the [CHANGELOG](CHANGELOG.md) for the latest changes
 Check out the [Qwik Essentials extension](https://marketplace.visualstudio.com/items?itemName=johnreemar.qwik-essentials) for more great extensions for developing with Typescript and Qwik. -->
 
 <br>
+
 ## Usage
+
 ----
 Type part of a snippet(for example: `q-c`, press `enter`, and the snippet unfolds.
 
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to activate snippets from within the editor.
 
 <br>
+
 ##  Qwik Snippets
+
 ----
 - ### Components
 > Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element.
@@ -84,7 +87,8 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | `q-inline-component`         | Qwik  inline component                                               |
 | `q-component-with-inline-component` | Qwik Component with inline component                          |
 
-- ### Events
+### Events
+  
 > Declaring, binding, and triggering events.
 
 | Snippet                      | Purpose                                                              |
@@ -95,29 +99,29 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | `q-useOn`                    | Add an event on specific event on current host element               |
 | `q-useOnDocument`            | RAdd an event on specific event on document.                         |
 | `q-useOnWindow`              | Add an event on specific event on window.                            |
-- ### Stores
+### Stores
 
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-- ### Props
+### Props
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-- ### Reactivity
+### Reactivity
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-- ### Context
+### Context
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-- ### Hooks
+### Hooks
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-- ### Projection
+### Projection
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
@@ -125,54 +129,59 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-- ### Optimizer
+### Optimizer
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-- ### Composing New APIs
+### Composing New APIs
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
 <br>
-##  Qwik City Snippets
+
+## Qwik City Snippets
+
 ----
-- ### Routing
+
+### Routing
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-- ### Layout
+### Layout
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
 
-- ### Data
+### Data
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-- ### Authoring Content
+### Authoring Content
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
 
-- ### Integrations
+### Integrations
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-- ### Prefetching
+### Prefetching
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-- ### Static Site Generation
+### Static Site Generation
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-- ### Head
+### Head
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
 
 <br>
-##  Mitosis Snippets
+
+## Mitosis Snippets
+
 ----
 
 | Snippet                      | Purpose                                                              |
@@ -180,7 +189,9 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | `qm-xxx`                | WIP                                                            |
 
 <br>
-##  Partytown Snippets
+
+## Partytown Snippets
+
 ----
 
 | Snippet                      | Purpose                                                              |
@@ -201,6 +212,18 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 ## Contributing
 
 We love contributions! Check out our [contributing docs](./contributing/CONTRIBUTING.md) to get more details into how to run this project, the examples, and more all locally.
+
+
+## Related Projects
+
+- [Qwik Docs](https://qwik.builder.io/)
+- [Discord](https://qwik.builder.io/chat)
+- [Qwik GitHub](https://github.com/BuilderIO/qwik)
+- [@QwikDev](https://twitter.com/QwikDev)
+- [Vite](https://vitejs.dev/)
+- [Partytown](https://partytown.builder.io/)
+- [Mitosis](https://github.com/BuilderIO/mitosis)
+- [Builder.io](https://www.builder.io/)
 
 ## Issues
 
