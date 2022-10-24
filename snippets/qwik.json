@@ -124,6 +124,13 @@
 			"on${1:Click}$={(${2:event}) => ${3:alert}('${4:Hello Qwik Event!}')}"
 		]
 	},
+	"Qwik onBlur Event": {
+		"prefix": "q-on-blur-event",
+		"description": "Qwik can listen on a variety of events by placing an on<Eventname>$ attribute on an element that subscribes to the corresponding browser event. ",
+		"body": [
+			"on${1:Blur}$={(${2:event}) => ${3:alert}('${4:Hello Qwik Event!}')}"
+		]
+	},
 	"Qwik Prevent Default Click Event": {
 		"prefix": "q-prevent-default-click-event",
 		"description": "For some events browsers have default behavior. For example, when you click a link, the browser will usually navigate to the link's href. There are times when we would like to prevent that. For this reason Event API contains preventDefault() method. Browser events are synchronous, but because Qwik is fine-grained loadable Qwik execution model is asynchronous. This means that at the time when the event is triggered, the event handler is not yet loaded. By the time the event is loaded the event has already been processed by the browser and calling preventDefault() will have no effect. To solve this Qwik provides a declarative API to automatically call preventDefault() when the event is triggered. This is achieved by adding preventdefault:<event-name> attribute to the element. This allows the Qwikloader to synchronously call preventDefault() when the event is triggered.",
