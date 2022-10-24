@@ -10,8 +10,15 @@
 			"});"
 		]
 	},
+	"Qwik Bind": {
+		"prefix": "q-bind",
+		"description": "Add binding expression to element",
+		"body": [
+			"{1:data.property}"
+		]
+	},
 	"Qwik Component with binding": {
-		"prefix": "q-component-binding",
+		"prefix": "q-component-with-binding",
 		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. The purpose of components is to merge data with the JSX template. You use the {expression} to inject data into a template. Expressions are placed either as a text node or attribute on an element.",
 		"body": [
 			"import { component$ } from '@builder.io/qwik';",
@@ -42,8 +49,17 @@
 			"};"
 		]
 	},
+	"Qwik Inline Component": {
+		"prefix": "q-inline-component",
+		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. If you want to ensure a component loads with another component, you create an inline component. Inline components load as a part of the parent component and are equivalent to how most other frameworks deal with components. ",
+		"body": [
+			"export const ${1:Inline} = () => {",
+			"  return <${2:div}>${3:Hello Qwik Inline Component!}</$2>",
+			"};"
+		]
+	},
 	"Qwik Component with Inline Component": {
-		"prefix": "q-component-inline",
+		"prefix": "q-component-with-inline-component",
 		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. If you want to ensure a component loads with another component, you create an inline component. Inline components load as a part of the parent component and are equivalent to how most other frameworks deal with components. ",
 		"body": [
 			"import { component$ } from '@builder.io/qwik';",
@@ -62,7 +78,7 @@
 		]
 	},
 	"Qwik Component with props": {
-		"prefix": "q-component with props",
+		"prefix": "q-component-with-props",
 		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. ",
 		"body": [
 			"import { component$, useSignal } from '@builder.io/qwik';",
@@ -82,7 +98,7 @@
 		]
 	},
 	"Qwik component with store and props": {
-		"prefix": "q-component with store and props",
+		"prefix": "q-component-with-store-and-props",
 		"description": "Qwik component with props",
 		"body": [
 			"import { component$, useSignal } from '@builder.io/qwik';",
@@ -101,6 +117,53 @@
 			"});"
 		]
 	},
+	"Qwik onClick Event": {
+		"prefix": "q-on-click-event",
+		"description": "Qwik can listen on a variety of events by placing an on<Eventname>$ attribute on an element that subscribes to the corresponding browser event. ",
+		"body": [
+			"on${1:Click}$={(${2:event}) => ${3:alert}('${4:Hello Qwik Event!}')}"
+		]
+	},
+	"Qwik Prevent Default Click Event": {
+		"prefix": "q-prevent-default-click-event",
+		"description": "For some events browsers have default behavior. For example, when you click a link, the browser will usually navigate to the link's href. There are times when we would like to prevent that. For this reason Event API contains preventDefault() method. Browser events are synchronous, but because Qwik is fine-grained loadable Qwik execution model is asynchronous. This means that at the time when the event is triggered, the event handler is not yet loaded. By the time the event is loaded the event has already been processed by the browser and calling preventDefault() will have no effect. To solve this Qwik provides a declarative API to automatically call preventDefault() when the event is triggered. This is achieved by adding preventdefault:<event-name> attribute to the element. This allows the Qwikloader to synchronously call preventDefault() when the event is triggered.",
+		"body": [
+			"preventdefault:${1:click}"
+		]
+	},
+	"useOn": {
+		"scope": "javascriptreact,typescriptreact",
+		"prefix": "q-useOn",
+		"description": "Register a listener on the current component's host element",
+		"body": [
+			"useOn(",
+			"  \"$1\",",
+			"  $((event) => {$0})",
+			");"
+		]
+	},
+	"useOnDocument": {
+		"scope": "javascriptreact,typescriptreact",
+		"prefix": "q-useOnDocument",
+		"description": "Register a listener on document",
+		"body": [
+			"useOnDocument(",
+			"  \"$1\",",
+			"  $((event) => {$0})",
+			");"
+		]
+	},
+	"useOnWindow": {
+		"scope": "javascriptreact,typescriptreact",
+		"prefix": "q-useOnWindow",
+		"description": "Register a listener on window",
+		"body": [
+			"useOnWindow(",
+			"  \"$1\",",
+			"  $((event) => {$0})",
+			");"
+		]
+	},
 	"Qwik signal": {
 		"scope": "javascriptreact,typescriptreact",
 		"prefix": "q-useSignal",
@@ -112,7 +175,7 @@
 	},
 	"Qwik store": {
 		"scope": "javascriptreact,typescriptreact",
-		"prefix": "q:useStore",
+		"prefix": "q-useStore",
 		"description": "useStore() declaration",
 		"body": [
 			"const ${1:state} = useStore({",
@@ -175,39 +238,6 @@
 			"  $0",
 			"});",
 			""
-		]
-	},
-	"useOn": {
-		"scope": "javascriptreact,typescriptreact",
-		"prefix": "q-useOn",
-		"description": "Register a listener on the current component's host element",
-		"body": [
-			"useOn(",
-			"  \"$1\",",
-			"  $((event) => {$0})",
-			");"
-		]
-	},
-	"useOnDocument": {
-		"scope": "javascriptreact,typescriptreact",
-		"prefix": "q-useOnDocument",
-		"description": "Register a listener on document",
-		"body": [
-			"useOnDocument(",
-			"  \"$1\",",
-			"  $((event) => {$0})",
-			");"
-		]
-	},
-	"useOnWindow": {
-		"scope": "javascriptreact,typescriptreact",
-		"prefix": "q-useOnWindow",
-		"description": "Register a listener on window",
-		"body": [
-			"useOnWindow(",
-			"  \"$1\",",
-			"  $((event) => {$0})",
-			");"
 		]
 	}
 }

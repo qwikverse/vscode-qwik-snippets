@@ -20,29 +20,29 @@ Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Q
 
 <!-- - [Qwik Essentials](#qwik-essentials) -->
 - [Usage](#usage)
-  - [Qwik Snippets](#qwik-snippets)
-    - [Components](#components)
-    - [Events](#events)
-    - [Stores](#stores)
-    - [Props](#props)
-    - [Reactivity](#reactivity)
-    - [Context](#context)
-    - [Hooks](#hooks)
-    - [Projection](#projection)
-    - [Styling](#styling)
-    - [Optimizer](#optimizer)
-    - [Composing New APIs](#composing-new-apis)
-  - [Qwik City Snippets](#qwik-city-snippets)
-    - [Routing](#routing)
-    - [Layout](#layout)
-    - [Data](#data)
-    - [Authoring Content](#authoring-content)
-    - [Integrations](#integrations)
-    - [Prefetching](#prefetching)
-    - [Static Site Generation](#static-site-generation)
-    - [Head](#head)
-  - [Mitosis Snippets](#mitosis-snippets)
-  - [Partytown Snippets](#partytown-snippets)
+- [Qwik Snippets](#qwik-snippets)
+  - [Components](#components)
+  - [Events](#events)
+  - [Stores](#stores)
+  - [Props](#props)
+  - [Reactivity](#reactivity)
+  - [Context](#context)
+  - [Hooks](#hooks)
+  - [Projection](#projection)
+  - [Styling](#styling)
+  - [Optimizer](#optimizer)
+  - [Composing New APIs](#composing-new-apis)
+- [Qwik City Snippets](#qwik-city-snippets)
+  - [Routing](#routing)
+  - [Layout](#layout)
+  - [Data](#data)
+  - [Authoring Content](#authoring-content)
+  - [Integrations](#integrations)
+  - [Prefetching](#prefetching)
+  - [Static Site Generation](#static-site-generation)
+  - [Head](#head)
+- [Mitosis Snippets](#mitosis-snippets)
+- [Partytown Snippets](#partytown-snippets)
 - [Installation](#installation)
 - [Contributing](#contributing)
 - [Issues](#issues)
@@ -62,32 +62,39 @@ See the [CHANGELOG](CHANGELOG.md) for the latest changes
 
 Check out the [Qwik Essentials extension](https://marketplace.visualstudio.com/items?itemName=johnreemar.qwik-essentials) for more great extensions for developing with Typescript and Qwik. -->
 
-
+<br>
 ## Usage
-
-Type part of a snippet, press `enter`, and the snippet unfolds.
+----
+Type part of a snippet(for example: `q-c`, press `enter`, and the snippet unfolds.
 
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to activate snippets from within the editor.
 
-##  **Qwik Snippets**
+<br>
+##  Qwik Snippets
+----
 - ### Components
 > Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element.
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | Basic Qwik Component                                                 |
-| `q:component-binding`        | Qwik Component with binding                                          |
+| `q-bind`                     | Qwik Component with binding                                          |
+| `q-component-with-binding`   | Add binding expression                                         |
 | `q-component-compose`        | Qwik Composing Components with child component                       |
-| `q-component-inline`         | Qwik Component with inline component                                 |
+| `q-inline-component`         | Qwik  inline component                                               |
+| `q-component-with-inline-component` | Qwik Component with inline component                          |
 
 - ### Events
 > Declaring, binding, and triggering events.
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-useOn`         | Register a listener on the current component's host elementcomponent                                 |
-| `q-useOnDocument`         | Register a listener on document                                |
-| `q-useOnWindow`         | Register a listener on window                                |
+| `q-on-click-event`           | Add an onClick event                                                 |
+| `q-on-blur-event`           | Add an onBlur event                                                 |
+| `q-prevent-default-click`    | Add prevent default for click event                                  |
+| `q-useOn`                    | Add an event on specific event on current host element               |
+| `q-useOnDocument`            | RAdd an event on specific event on document.                         |
+| `q-useOnWindow`              | Add an event on specific event on window.                            |
 - ### Stores
 
 
@@ -126,7 +133,9 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
-##  **Qwik City Snippets**
+<br>
+##  Qwik City Snippets
+----
 - ### Routing
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
@@ -162,14 +171,17 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
 
-
-##  **Mitosis Snippets**
+<br>
+##  Mitosis Snippets
+----
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `qm-xxx`                | WIP                                                            |
 
-##  **Partytown Snippets**
+<br>
+##  Partytown Snippets
+----
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
