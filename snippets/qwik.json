@@ -99,7 +99,7 @@
 	},
 	"Qwik component with store and props": {
 		"prefix": "q-component-with-store-and-props",
-		"description": "Qwik component with props",
+		"description": "Qwik component with props and store",
 		"body": [
 			"import { component$, useSignal } from '@builder.io/qwik';",
 			"",
@@ -118,28 +118,27 @@
 		]
 	},
 	"Qwik onClick Event": {
-		"prefix": "q-on-click-event",
+		"prefix": "q-onClick",
 		"description": "Qwik can listen on a variety of events by placing an on<Eventname>$ attribute on an element that subscribes to the corresponding browser event. ",
 		"body": [
 			"on${1:Click}$={(${2:event}) => ${3:alert}('${4:Hello Qwik Event!}')}"
 		]
 	},
 	"Qwik onBlur Event": {
-		"prefix": "q-on-blur-event",
+		"prefix": "q-onBlur",
 		"description": "Qwik can listen on a variety of events by placing an on<Eventname>$ attribute on an element that subscribes to the corresponding browser event. ",
 		"body": [
 			"on${1:Blur}$={(${2:event}) => ${3:alert}('${4:Hello Qwik Event!}')}"
 		]
 	},
 	"Qwik Prevent Default Click Event": {
-		"prefix": "q-prevent-default-click-event",
+		"prefix": "q-preventdefault",
 		"description": "For some events browsers have default behavior. For example, when you click a link, the browser will usually navigate to the link's href. There are times when we would like to prevent that. For this reason Event API contains preventDefault() method. Browser events are synchronous, but because Qwik is fine-grained loadable Qwik execution model is asynchronous. This means that at the time when the event is triggered, the event handler is not yet loaded. By the time the event is loaded the event has already been processed by the browser and calling preventDefault() will have no effect. To solve this Qwik provides a declarative API to automatically call preventDefault() when the event is triggered. This is achieved by adding preventdefault:<event-name> attribute to the element. This allows the Qwikloader to synchronously call preventDefault() when the event is triggered.",
 		"body": [
 			"preventdefault:${1:click}"
 		]
 	},
 	"useOn": {
-		"scope": "javascriptreact,typescriptreact",
 		"prefix": "q-useOn",
 		"description": "Register a listener on the current component's host element",
 		"body": [
@@ -150,7 +149,6 @@
 		]
 	},
 	"useOnDocument": {
-		"scope": "javascriptreact,typescriptreact",
 		"prefix": "q-useOnDocument",
 		"description": "Register a listener on document",
 		"body": [
@@ -161,7 +159,6 @@
 		]
 	},
 	"useOnWindow": {
-		"scope": "javascriptreact,typescriptreact",
 		"prefix": "q-useOnWindow",
 		"description": "Register a listener on window",
 		"body": [
@@ -172,7 +169,6 @@
 		]
 	},
 	"Qwik signal": {
-		"scope": "javascriptreact,typescriptreact",
 		"prefix": "q-useSignal",
 		"description": "useSignal() declaration",
 		"body": [
@@ -181,7 +177,6 @@
 		]
 	},
 	"Qwik store": {
-		"scope": "javascriptreact,typescriptreact",
 		"prefix": "q-useStore",
 		"description": "useStore() declaration",
 		"body": [
@@ -191,30 +186,7 @@
 			"$0"
 		]
 	},
-	"$ hook": {
-		"scope": "javascriptreact,typescriptreact",
-		"prefix": "q-$",
-		"description": "$() function hook",
-		"body": [
-			"$(() => {",
-			"  $0",
-			"});",
-			""
-		]
-	},
-	"useClientEffect": {
-		"scope": "javascriptreact,typescriptreact",
-		"prefix": "q-useClientEffect",
-		"description": "useClientEffect$() function hook",
-		"body": [
-			"useClientEffect$(({ track }) => {",
-			"  $0",
-			"});",
-			""
-		]
-	},
 	"useWatch": {
-		"scope": "javascriptreact,typescriptreact",
 		"prefix": "q-useWatch",
 		"description": "useWatch$() function hook",
 		"body": [
@@ -226,23 +198,272 @@
 		]
 	},
 	"useResource": {
-		"scope": "javascriptreact,typescriptreact",
 		"prefix": "q-useResource",
-		"description": "useResource$() declaration",
+		"description": "useResource$() declaration. Qwik provides useResource$() and <Resource> to help you fetch and display data from the server. When fetching data the application can be in one of three states: pending: the data is being fetched from the server => Render loading... indicator, resolved: the data has successfully been fetched from the server => Render the data, rejected: the data could not be fetched from the server due to an error => Render the error.Use useResource$() function to set up how the data is fetched from the server. Use <Resource> to display the data.",
 		"body": [
-			"const $1 = useResource$(({ track, cleanup }) => {",
+			"const ${1:resource} = useResource$(({ track, cleanup }) => {",
+			"  $0",
+			"});",
+			"",
+			"return (",
+			"<Resource",
+			"value={resource}",
+			"onPending={() => <>Loading...</>}",
+			"onRejected={(error) => <>Error: {error.message}</>}",
+			"onResolved={(repos) => (<div></div>)}",
+			"/>",
+			");"
+		]
+	},
+	"createContext": {
+		"prefix": "q-createContext",
+		"description": "This creates a serializable ID for the context. Make sure that this id is unique within your application",
+		"body": [
+			"export interface ${1:Store} {",
+			"${2:items}: ${3:string}[];",
+			"}",
+			"export const ${4:Context} = createContext<$1>('$1');"
+		]
+	},
+	"useContextProvider": {
+		"prefix": "q-useContextProvider",
+		"description": "At a parent component call this method to publish the context value. All children (and grandchildren) that are descendants of this component will be able to retrieve the context.",
+		"body": [
+			"useContextProvider(",
+			"${1:Context}",
+			"useStore<${1:Store}>({",
+			"${2:items}: ${3:['Learn Qwik', 'Build Qwik app', 'Profit']}",
+			"})",
+			");"
+		]
+	},
+	"useContext": {
+		"prefix": "q-useContext",
+		"description": "To retrieve the context and use it in any component",
+		"body": [
+			"const ${1:context} = useContext(${2:Context});"
+		]
+	},
+	"useMount": {
+		"prefix": "q-useMount",
+		"description": "useMount$() function hook. Hook that executes a callback when the component is mounted into the rendering tree.",
+		"body": [
+			"useMount$(() => {",
 			"  $0",
 			"});",
 			""
 		]
 	},
 	"useServerMount": {
-		"scope": "javascriptreact,typescriptreact",
 		"prefix": "q-useServerMount",
-		"description": "useServerMount$() function hook",
+		"description": "useServerMount$() function hook: Hook that executes on the component mount when in a server environment. This is useful because server often has different APIs for retrieving data.",
 		"body": [
 			"useServerMount$(() => {",
 			"  $0",
+			"});",
+			""
+		]
+	},
+	"useClientEffect": {
+		"prefix": "q-useClientEffect",
+		"description": "Use useClientEffect$() to execute code after the component is resumed. This is useful for setting up timers or streams on the client when the application is resumed.",
+		"body": [
+			"useClientEffect$(({ track }) => {",
+			"  track(() => {$0});",
+			"});",
+			""
+		]
+	},
+	"useRef": {
+		"prefix": "q-useRef",
+		"description": "Use useRef() to get a hold of DOM elements created by the component.",
+		"body": [
+			"const ${1:outputRef} = useRef(${2});",
+			"",
+			"return (",
+			"<div ref={$1}>",
+			");"
+		]
+	},
+	"Basic Projection": {
+		"prefix": "q-projection",
+		"description": "Projection is a way of passing content to a child component that in turn controls where the content is rendered. Projection is a collaboration between the parent and child component. The parent component decides what is the content that needs to be rendered, child component decides where and if the content should be rendered.",
+		"body": [
+			"import { component$, Slot } from '@builder.io/qwik';",
+			"",
+			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}:component} = component$(() => {",
+			"  return (",
+			"    <${3}>",
+			"      ${4:Count}",
+			"    </${3}>",
+			"  );",
+			"});",
+			"",
+			"export const ${3:Panel} = component$(() => {",
+			"  return (",
+			"     <div>",
+			"        <Slot/>",
+			"     </div>",
+			"  (",
+			"};"
+		]
+	},
+	"Projection with Named Slot": {
+		"prefix": "q-projection-named-slot",
+		"description": "In simple cases, projection allows content from the parent component to be projected into the child component. In more complex cases there may be more than one content slot that needs to be projected. Having multiple content slots is achieved by naming them.",
+		"body": [
+			"import { component$, Slot, useStore } from '@builder.io/qwik';",
+			"",
+			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}:component} = component$(() => {",
+			"  return (",
+			"    <${3}>",
+			"      <div q:slot=\"${5:closed}\">▶ (collapsed summary)</div>",
+			"      <div q:slot=\"${4:open}\">",
+			"          ▼<div> ${6:Content that should be displayed when the collapse component is open.}</div>",
+			"      </div>",
+			"    </${3}>",
+			"  );",
+			"});",
+			"",
+			"export const ${3:Panel} = component$(() => {",
+			"  const store = useStore({ open: true });",
+			"  return (",
+			"     <div>",
+			"        {store.open ? <Slot name=\"$4\" /> : <Slot name=\"$5\" />}",
+			"     </div>",
+			"  (",
+			"};"
+		]
+	},
+	"useStyles$": {
+		"prefix": "q-useStyles$",
+		"description": "Qwik is responsible for loading the global style information when a component is mounted. Use useStyles$() to tell Qwik which style should be loaded.",
+		"body": [
+			"import { useStyles$ } from '@builder.io/qwik';",
+			"import styles from './app.css';",
+			"",
+			"useStyles$(styles);"
+		]
+	},
+	"useStylesScoped$": {
+		"prefix": "q-useStylesScoped$",
+		"description": "Use useStylesScoped$() to load and scope the style to a specific component only.",
+		"body": [
+			"import { useStylesScoped$ } from '@builder.io/qwik';",
+			"import styles from './app.css';",
+			"",
+			"useStylesScoped$(styles);"
+		]
+	},
+	"$ hook": {
+		"prefix": "q-$-hook",
+		"description": "$() function hook",
+		"body": [
+			"$(() => {",
+			"  $0",
+			"});",
+			""
+		]
+	},
+	"Optimizer": {
+		"prefix": "q-optimizer",
+		"description": "For the application to be resumable it needs to have lots of entry points. For example, clicking on button A is a different entry point than clicking on button B. When we implement an application we don't usually think about entry points and so we typically end up with just one entry point or the main() function. \n The Optimizer does its job by looking for functions that end in $ character. For example, the Optimizer will transform a call to component$() into an entry point. Notice that the name of the function doesn't matter only that it ends with the $.\n Every time you see $ you should think, there is a lazy-loaded boundary here. The implication is that the lazy-loaded content may require lazy-loading and hence can't be accessed synchronously. \n While the Optimizer can serialize any data that Qwik can serialize, it has special handling for closures. Closures are functions that are created inside of other functions and that may capture variables in the lexical scope. The ability to serialize closures is a key property that makes Qwik resumable. Without closure serialization, it would be difficult to have resumable applications.",
+		"body": [
+			"import { component$, useStore } from '@builder.io/qwik';",
+			"",
+			"export const App = component$(() => {",
+			" const store = useStore({ count: 0 });",
+			"  return (",
+			"    <>",
+			"      Count: {store.count} <button onClick$={() => store.count++}>+1</button>",
+			"    </>",
+			" );",
+			"});"
+		]
+	},
+	"Lazy Loading Constants": {
+		"prefix": "q-lazy-loading-constants",
+		"description": "The Optimizer can be used to lazy-load data, not just functions. The benefit of doing that is that lazy loading any part of your application becomes easy. \n Use the stand-alone $() function to mark the data that you wish to lazy load. The $() function returns a QRL that is a reference that can be serialized by Qwik and that can later be resolved into the original value. \n Example \n Load the data representing the message lazily as part of the click listener. \n For this exercise imagine that we wish to lazy load the 'Hello World!' string. Use the $() function to mark the string as lazy-loadable. Then use await to resolve the lazy-loadable value.\n Go to the Symbols tab and examine how the code was broken down into parts.",
+		"body": [
+			"import { component$, $ } from '@builder.io/qwik';",
+			"",
+			"export const App = component$(() => {",
+			"  return (",
+			"    <>",
+			"      button onClick$={async () => alert(await $('${1:Hello World!}').resolve())}>click me</button>",
+			"    </>",
+			" );",
+			"});"
+		]
+	},
+	"Lazy Loading Closures": {
+		"prefix": "q-lazy-loading-closures",
+		"description": "A closure can be converted into a lazy-loaded reference using the $() function. This generates a QRL<Function> type. A QRL is a lazy-loadable reference of the closure. In our case, we have extracted the closure associated with the onInput event into the component body. Because it is no longer inlined we need to change how the JSX refers to it from onInput$ to onInputQrl. \n Notice that our closure closes over the store that is captured by the Optimizer and then restored as needed.",
+		"body": [
+			"import { component$, useStore, $ } from '@builder.io/qwik';",
+			"",
+
+			"export const App = component$(() => {",
+			"  const store = useStore({ name: '' });",
+			"  return (",
+			"     <>",
+			"       Enter your name followed by the enter key:{' '}",
+			"       <input",
+			"          onInput$={$(async (event) => {",
+			"             const input = event.target as HTMLInputElement;",
+			"             store.name = input.value;",
+			"          })}",
+			"          onChange$={$(async (event) => {",
+			"              if (store.name) alert(store.name);",
+			"          })}",
+			"          value={store.name}",
+			"       />",
+			"    </>",
+			"  );",
+			"});"
+		]
+	},
+	"API Creation with $": {
+		"prefix": "q-create-api-$",
+		"description": "The powerful, part of Optimizer is that you can create your own APIs with $ suffix.",
+		"body": [
+			"import { component$, QRL, implicit$FirstArg, useStore } from '@builder.io/qwik';",
+			"",
+			"export function ${1delay}Qrl<T>(fn: QRL<() => T>, delayInMs: number): Promise<T> {",
+			"   return new Promise((res) => {",
+			"      setTimeout(() => {",
+			"         res(fn());",
+			"      }, delayInMs);",
+			"  });",
+			"}",
+			"",
+			"export const $1$ = implicit$FirstArg($1Qrl);"
+		]
+	},
+	"Composing use Hooks": {
+		"prefix": "q-composing-use-hook",
+		"description": "Hooks are a way to abstract common logic away from the components that use it. They are a way to share logic between components. While Qwik provides many hooks, there will always be one that is not provided out of the box. \n This tutorial will show you how to create your own hook. \nIn this example, the registering of mousemove events is something that could be shared between multiple components. Refactor the code by pulling out the code before JSX into its own useMousePosition() function.",
+		"body": [
+			"import { component$, useOnDocument, useStore, $ } from '@builder.io/qwik';",
+			"",
+			"export function useMousePosition() {",
+			"   const mousePosition = useStore({ x: 0, y: 0 });",
+			"   useOnDocument(",
+			"     'mousemove',",
+			"     $((event: Event) => {",
+			"       mousePosition.x = (event as MouseEvent).clientX;",
+			"       mousePosition.y = (event as MouseEvent).clientY;",
+			"     })",
+			"   );",
+			"   return mousePosition;",
+			"  }",
+			"export const App = component$(() => {",
+			"const mousePosition = useMousePosition();",
+			"  return (",
+			"    <div>",
+			"      (x: {mousePosition.x}, y: {mousePosition.y})",
+			"    </div>",
+			" );",
 			"});",
 			""
 		]

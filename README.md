@@ -21,13 +21,15 @@ Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Q
 <!-- - [Qwik Essentials](#qwik-essentials) -->
 - [Usage](#usage)
 - [Qwik Snippets](#qwik-snippets)
+  - [Components](#components)
   - [Events](#events)
   - [Stores](#stores)
   - [Props](#props)
   - [Reactivity](#reactivity)
   - [Context](#context)
-  - [Hooks](#hooks)
+  - [Lifecycle Hooks](#lifecycle-hooks)
   - [Projection](#projection)
+  - [Styling](#styling)
   - [Optimizer](#optimizer)
   - [Composing New APIs](#composing-new-apis)
 - [Qwik City Snippets](#qwik-city-snippets)
@@ -43,7 +45,7 @@ Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Q
 - [Partytown Snippets](#partytown-snippets)
 - [Installation](#installation)
 - [Contributing](#contributing)
-- [Related Projects](#related-projects)
+- [Related Links](#related-links)
 - [Issues](#issues)
 
 </details>
@@ -65,7 +67,6 @@ Check out the [Qwik Essentials extension](https://marketplace.visualstudio.com/i
 
 ## Usage
 
-----
 Type part of a snippet(for example: `q-c`, press `enter`, and the snippet unfolds.
 
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to activate snippets from within the editor.
@@ -74,17 +75,16 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 
 ##  Qwik Snippets
 
-----
-- ### Components
+### Components
 > Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element.
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | Basic Qwik Component                                                 |
-| `q-bind`                     | Qwik Component with binding                                          |
-| `q-component-with-binding`   | Add binding expression                                         |
-| `q-component-compose`        | Qwik Composing Components with child component                       |
+| `q-bind`                     | Add binding expression                                               |
 | `q-inline-component`         | Qwik  inline component                                               |
+| `q-component-compose`        | Qwik Composing Components with child component                       |
+| `q-component-with-binding`   | Qwik Component with binding                                          |
 | `q-component-with-inline-component` | Qwik Component with inline component                          |
 
 ### Events
@@ -93,39 +93,51 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-on-click-event`           | Add an onClick event                                                 |
-| `q-on-blur-event`           | Add an onBlur event                                                 |
-| `q-prevent-default-click`    | Add prevent default for click event                                  |
+| `q-onClick`                  | Add an onClick event                                                 |
+| `q-onBlur`                   | Add an onBlur event                                                  |
+| `q-preventdefault`           | Add prevent default for click event                                  |
 | `q-useOn`                    | Add an event on specific event on current host element               |
-| `q-useOnDocument`            | RAdd an event on specific event on document.                         |
+| `q-useOnDocument`            | Add an event on specific event on document.                          |
 | `q-useOnWindow`              | Add an event on specific event on window.                            |
 ### Stores
 
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
+| `q-useStore`                | Add useStore()                       |
+| `q-component-with-store-and-props` | Qwik component with props and store   |
 ### Props
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
+| `q-component-with-props`     | Qwik component with props           |
 ### Reactivity
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
+| `q-useSignal`                | useSignal() declaration             |
+| `q-useWatch`                 | useWatch$() function hook          |
+| `q-useResource`              | useResource$() declaration          |
 ### Context
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
-### Hooks
+| `q-createContext`   |     This creates a serializable ID for the context. Make sure that this id is unique within your application       |
+| `q-useContextProvider`   |     At a parent component call this method to publish the context value. All children (and grandchildren) that are descendants of this component will be able to retrieve the context.       |
+| `q-useContext`   |     To retrieve the context and use it in any component.       |
+### Lifecycle Hooks
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
+| `q-useMount`                 | `useMount$()` function hook. Hook that executes a callback when the component is mounted into the rendering tree.                           |
+| `q-useServerMount`           | `useServerMount$()` function hook: Hook that executes on the component mount when in a server environment. This is useful because server often has different APIs for retrieving data.                           |
+| `q-useClientEffect`          | Use `useClientEffect$()` to execute code after the component is resumed. This is useful for setting up timers or streams on the client when the application is resumed.       |
+| `q-useWatch`                 | Use `useWatch$()` to execute a function before the initial render and whenever the tracking values change. The function executes before rendering, but it can't delay rendering, so if `useWatch$()` is asynchronous, the rendering will happen before the `useWatch$()` is fully executed.            |
+| `q-useRef`                 | Use `useRef()` to get a hold of DOM elements created by the component.     |
+| `q-useOn`                  | Add an event on specific event on current host element   |
+| `q-useOnDocument`            | Add an event on specific event on document.          |
+| `q-useOnWindow`              | Add an event on specific event on window.         |
 ### Projection
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
-- ### Styling
+| `q-basic-projection`         | Projection is a way of passing content to a child component that in turn controls where the content is rendered. Projection is a collaboration between the parent and child component. The parent component decides what is the content that needs to be rendered, child component decides where and if the content should be rendered.                                      |
+### Styling
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | WIP                                                 |
@@ -141,7 +153,6 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 
 ## Qwik City Snippets
 
-----
 
 ### Routing
 | Snippet                      | Purpose                                                              |
@@ -182,7 +193,6 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 
 ## Mitosis Snippets
 
-----
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
@@ -191,8 +201,6 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 <br>
 
 ## Partytown Snippets
-
-----
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
@@ -214,7 +222,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 We love contributions! Check out our [contributing docs](./contributing/CONTRIBUTING.md) to get more details into how to run this project, the examples, and more all locally.
 
 
-## Related Projects
+## Related Links
 
 - [Qwik Docs](https://qwik.builder.io/)
 - [Discord](https://qwik.builder.io/chat)

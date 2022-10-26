@@ -1,6 +1,5 @@
 {
   "onGet": {
-    "scope": "javascriptreact,typescriptreact",
     "prefix": "q-onGet",
     "description": "onGet function for a route index",
     "body": [
@@ -10,7 +9,6 @@
     ]
   },
   "onGet (typed)": {
-    "scope": "javascriptreact,typescriptreact",
     "prefix": "q-onGet typed",
     "description": "onGet function for a route index",
     "body": [
@@ -24,7 +22,6 @@
     ]
   },
   "useEndpoint": {
-    "scope": "javascriptreact,typescriptreact",
     "prefix": "q-useEndpoint",
     "description": "useEndpoint declaration",
     "body": "const $1 = useEndpoint<typeof onGet>();"
