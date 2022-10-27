@@ -50,7 +50,7 @@
 			"};"
 		]
 	},
-	"Qwik Inline/Lite Component": {
+	"Qwik Inline Lite Component": {
 		"prefix": "q-inline-lite-component",
 		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. If you want to ensure a component loads with another component, you create an inline component. Inline components load as a part of the parent component and are equivalent to how most other frameworks deal with components. ",
 		"body": [
@@ -172,22 +172,27 @@
 			");"
 		]
 	},
-	"Qwik signal": {
+	"Qwik Signal": {
 		"prefix": "q-useSignal",
 		"description": "useSignal() declaration",
 		"body": [
-			"const ${1:foo} = useSignal($2);",
-			"$0"
+			"const ${1:foo} = useSignal($2);"
 		]
 	},
-	"Qwik store": {
+	"Qwik Store": {
 		"prefix": "q-useStore",
 		"description": "useStore() declaration",
 		"body": [
 			"const ${1:state} = useStore({",
 			"  $2",
-			"});",
-			"$0"
+			"});"
+		]
+	},
+	"Qwik Recursive Store": {
+		"prefix": "q-useStore-recursive",
+		"description": "recursive useStore() declaration",
+		"body": [
+			"const ${1:store} = useStore({ ${2:counter}: { ${3:count}: ${4:0} } }, { recursive: true });"
 		]
 	},
 	"useWatch": {

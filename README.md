@@ -39,6 +39,7 @@ Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Q
   - [Authoring Content](#authoring-content)
   - [Integrations](#integrations)
   - [Prefetching](#prefetching)
+  - [Server Adaptors and Middleware](#server-adaptors-and-middleware)
   - [Static Site Generation](#static-site-generation)
   - [Head](#head)
 - [Mitosis Snippets](#mitosis-snippets)
@@ -82,7 +83,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | Basic Qwik Component                                                 |
 | `q-bind`                     | Add binding expression                                               |
-| `q-inline-component`         | Qwik  inline component                                               |
+| `q-inline-lite-component`         | Qwik  inline component                                               |
 | `q-component-compose`        | Qwik Composing Components with child component                       |
 | `q-component-with-binding`   | Qwik Component with binding                                          |
 | `q-component-with-inline-component` | Qwik Component with inline component                          |
@@ -111,6 +112,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-useStore`                | Add useStore()                       |
+| `q-useStore-recursive`                | Add recursive useStore()                       |
 | `q-component-with-store-and-props` | Qwik component with props and store   |
 ### Props
 >Web applications are built up from components in the same way that general applications are built up from functions.
@@ -185,7 +187,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-create-api-$`             |                  |
+| `q-create-api-$`             | This method knows how to take a QRL and execute it after a certain delay. The key part here is that the QRL.invoke() method is called when the delay is ready and is therefore lazy.                 |
 | `q-composing-use-hook`       | Hooks are a way to abstract common logic away from the components that use it. They are a way to share logic between components. While Qwik provides many hooks, there will always be one that is not provided out of the box. This tutorial will show you how to create your own hook. n this example, the registering of mousemove events is something that could be shared between multiple components. Refactor the code by pulling out the code before JSX into its own useMousePosition() function.      |
 
 <br>
@@ -194,39 +196,80 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 
 
 ### Routing
+> Routing is a way to map public URLs for a site to specific components declared in your application.
+>
+> Qwik City uses directory-based routing. This means that the structure of your routes directory drives the public-facing URLs that the user will see for your application. However, it differs slightly from traditional file-based routing, which we will discuss shortly.
+> 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
+| `qc-useLocation`              | Retrieve the Route Parameter from the URL    |
+| `qc-404-not-found`              | At times it is necessary to respond with HTTP status codes other than `200`. In such cases, response handler is the place to determine what status code should be returned.    |
 ### Layout
+> When implementing routes, different routes usually share a common header, footer, and menu system. We call the common parts a layout.
+>
+> The developer could extract all of these into `<Header>`, `<Footer>`, and `<Menu>` components and manually add them to each page component, but that is repetitive and error-prone. Instead, we can use layouts to automatically reuse common parts.
+
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
+| `qc-layout`                  | Add sample layout                   |
+| `qc-layout-structure`        | Add sample layout structure                  |
+| `qc-nested-layout`           | Add sample nested layout            |
+| `qc-nested-layout-structure` | Add sample nested layout structure     |
+| `qc-grouped-layout-structure`| Add sample group layout structure     |
+| `qc-named-layout-structure`  | Add sample named layout structure           |
+| `qc-top-layout-structure`    | Add sample top layout structure           |
+| `qc-menu`                    | Add sample menu                     |
+| `qc-header`                  | Add sample header                   |
+| `qc-footer`                  | Add sample footer                   |
 
 ### Data
+> Each route has the ability to add HTTP request and response handlers, allowing for developers to retrieve and modify data. The handlers can also be used by endpoints, which only respond with data rather than a page's HTML.
+>
+> This feature enables you to handle any request event, have side effects on the request pipeline, just before you render the component and respond with custom content. It is available to pages, layouts and endpoint routes, but not on regular components.
+> 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
+| `qc-data`                | WIP                                                 |
 ### Authoring Content
+> Page content can be created using Qwik components. The component representing the content should be exported as a default export.
+> 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
+| `qc-content`                | WIP                                                 |
 
 ### Integrations
+> React, Partytown, Tailwind
+> 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
+| `qc-integrations`                | WIP                                                 |
 ### Prefetching
+> The goal of Qwik's prefetching is not to prefetch the entire application, but to have already prefetched and cached what's possible at that time. When the Qwik optimizer breaks apart the application, it's able to understand possible user interactions. And from this, it's just as important that it's able to understand what's not possible from user interaction.
+
+
+
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
+| `qc-prefetching`                | WIP                                                 |
+### Server Adaptors and Middleware
+> Qwik City middleware is a glue code that connects server rendering framework (such as Cloudflare, Netlify, Express etc.) with the Qwik City meta-framework.
+> 
+| Snippet                      | Purpose                                                              |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `qc-adaptors`                | WIP                                                 |
 ### Static Site Generation
+> Static Site Generation, or commonly referred to as "SSG", is the process of pre-rendering site webpages into static HTML files. The benefit is that when a visitor requests the webpage, the response is a pre-generated HTML file (a static file), and doesn't require the webpage's HTML to "rebuild" on the visitors browser, or dynamically created by your server.
+
+
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
+| `qc-static`                | WIP                                                 |
 ### Head
+> HTML places the <head> tag as the first element within <html> (at the very top of the HTML content). The <head> section is not something that your route component renders directly, yet you still need to control its content. This can be achieved by exporting a head property (or function) from your page component.
+> 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-component`                | WIP                                                 |
+| `qc-head`                | WIP                                                 |
 
 <br>
 
@@ -235,7 +278,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `qm-xxx`                | WIP                                                            |
+| `m-xxx`                | WIP                                                            |
 
 <br>
 
@@ -243,7 +286,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `qp-xxx`                | WIP                                                            |
+| `p-xxx`                | WIP                                                            |
 
 
 
