@@ -89,7 +89,9 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 
 ### Events
   
-> Declaring, binding, and triggering events.
+> A key feature of any framework is making it easy to listen to user events.
+> >
+> Qwik can listen on a variety of events by placing an on<Eventname>$ attribute on an element that subscribes to the corresponding browser event.
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
@@ -100,29 +102,48 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | `q-useOnDocument`            | Add an event on specific event on document.                          |
 | `q-useOnWindow`              | Add an event on specific event on window.                            |
 ### Stores
-
+>Qwik tracks application state for two reasons:
+>
+> 1. To serialize data when the application pauses on the server, and deserialize as the application resumes on the client.
+> 
+> 1. To create subscriptions on stores so that Qwik knows which components to re-render. If Qwik didn't track subscriptions, it would have to re-render the whole application - which would defeat the purpose of lazy-loading.
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-useStore`                | Add useStore()                       |
 | `q-component-with-store-and-props` | Qwik component with props and store   |
 ### Props
+>Web applications are built up from components in the same way that general applications are built up from functions.
+> 
+> Composing functions would not be very useful if you couldn't pass in parameters. In the same way that functions have parameters, components have "props". A component uses props to pass data to its children components.
+
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component-with-props`     | Qwik component with props           |
 ### Reactivity
+> Reactivity is a key component of Qwik. Reactivity allows Qwik to track which components are subscribed to which state. This information enables Qwik to invalidate only the relevant component on state change, which minimizes the number of components that need to be re-rendered. Without reactivity, a state change would require re-rendering from the root component, which would force the whole component tree to be eagerly downloaded.
+
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-useSignal`                | useSignal() declaration             |
 | `q-useWatch`                 | useWatch$() function hook          |
 | `q-useResource`              | useResource$() declaration          |
 ### Context
+> Use context to pass data to child components without explicitly passing it through components (known as prop drilling). Context is useful to share data that is needed throughout the application components. For example styling information, application state, or currently logged-in user.
+
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-createContext`   |     This creates a serializable ID for the context. Make sure that this id is unique within your application       |
 | `q-useContextProvider`   |     At a parent component call this method to publish the context value. All children (and grandchildren) that are descendants of this component will be able to retrieve the context.       |
 | `q-useContext`   |     To retrieve the context and use it in any component.       |
 ### Lifecycle Hooks
+> Qwik is resumable. Resumability means that the application starts up on the server and then the application is transferred to the client. On the client, the application continues execution from where it left off. The implication of this is that a component may be created on the server and destroyed on the client. This means that the component's `useMount$()` method may execute on the server but its `useCleanup$()` method may execute on the client.
+> 
+> When using lifecycle hooks, you must adhere to the following rules:
+> - They can only be called in `component$`
+> - They can only be called at the root level of a function / arrow function context, not inside of branches or conditional blocks
+> - They can only be called from another `use*$` method, allowing for composition
+
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-useMount`                 | `useMount$()` function hook. Hook that executes a callback when the component is mounted into the rendering tree.                           |
@@ -134,16 +155,24 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | `q-useOnDocument`            | Add an event on specific event on document.          |
 | `q-useOnWindow`              | Add an event on specific event on window.         |
 ### Projection
+> Projection is a way of passing content to a child component that in turn controls where the content is rendered. Projection is a collaboration between the parent and child component. The parent component decides what is the content that needs to be rendered, child component decides where and if the content should be rendered.
+
+
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-projection`         | Projection is a way of passing content to a child component that in turn controls where the content is rendered. Projection is a collaboration between the parent and child component. The parent component decides what is the content that needs to be rendered, child component decides where and if the content should be rendered.                                      |
 | `q-projection-named-slot`         | In simple cases, projection allows content from the parent component to be projected into the child component. In more complex cases there may be more than one content slot that needs to be projected. Having multiple content slots is achieved by naming them.                    |
 ### Styling
+> Styling is an important part of the design of a web application. Qwik is responsible for loading the style information when a component is mounted. Use `useStyles$()` to tell Qwik which style should be loaded.
+> 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-useStyles$`         | Qwik is responsible for loading the style information when a component is mounted. Use useStyles$() to tell Qwik which style should be loaded.      |
 | `q-useStylesScoped$`         | Use useStylesScoped$() to load and scope the style to a specific component only.      |
 ### $ Optimizer
+> Qwik's philosophy is to delay loading code for as long as possible. To do that, Qwik relies on Optimizer to re-arrange the code for lazy loading. The Optimizer is code level transformation that runs as part of the rollup. (Optimizer is written in Rust (and available as WASM) for instant performance)
+>
+> The Optimizer looks for `$` and applies a transformation that extracts the expression following the `$` and turns it into a lazy-loadable and importable symbol.
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
@@ -152,10 +181,11 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | `q-lazy-loading-closures`                | A closure can be converted into a lazy-loaded reference using the `$()` function. This generates a `QRL<Function>` type. A QRL is a lazy-loadable reference of the closure. In our case, we have extracted the closure associated with the onInput event into the component body. Because it is no longer inlined we need to change how the JSX refers to it from onInput$ to `onInputQrl`. Notice that our closure closes over the store that is captured by the Optimizer and then restored as needed.|
 
 ### Composing New APIs
+> The powerful, part of Optimizer is that you can create your own APIs with $ suffix.
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-create-api-$`             | The powerful, part of Optimizer is that you can create your own APIs with $ suffix.                  |
+| `q-create-api-$`             |                  |
 | `q-composing-use-hook`       | Hooks are a way to abstract common logic away from the components that use it. They are a way to share logic between components. While Qwik provides many hooks, there will always be one that is not provided out of the box. This tutorial will show you how to create your own hook. n this example, the registering of mousemove events is something that could be shared between multiple components. Refactor the code by pulling out the code before JSX into its own useMousePosition() function.      |
 
 <br>
@@ -241,6 +271,9 @@ We love contributions! Check out our [contributing docs](./contributing/CONTRIBU
 - [Partytown](https://partytown.builder.io/)
 - [Mitosis](https://github.com/BuilderIO/mitosis)
 - [Builder.io](https://www.builder.io/)
+- [Qwik Lottie](https://www.npmjs.com/package/qwik-lottie)
+- [Qwik Rive](https://www.npmjs.com/package/qwik-rive)
+- [Awesome Qwik](https://github.com/qwik-design/awesome-qwik)
 
 ## Issues
 

@@ -6,7 +6,7 @@
   "version": "0.3.3",
   "icon": "assets/qwik.png",
   "galleryBanner": {
-    "color": "#020b3b",
+    "color": "#000000",
     "theme": "dark"
   },
   "repository": {
