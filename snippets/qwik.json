@@ -5,7 +5,7 @@
 		"body": [
 			"import { component$ } from '@builder.io/qwik';",
 			"",
-			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}:component} = component$(() => {",
+			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
 			"  return <${2:div}>${3:Hello Qwik!}</$2>",
 			"});"
 		]
@@ -24,7 +24,7 @@
 			"import { component$ } from '@builder.io/qwik';",
 			"",
 			"",
-			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}:component} = component$(() => {",
+			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
 			"  const ${2:name} = '${3:Qwik}';",
 			"  return <${4:div}>Hello {${2}}!</$4>",
 			"});"
@@ -36,7 +36,7 @@
 		"body": [
 			"import { component$ } from '@builder.io/qwik';",
 			"",
-			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}:component} = component$(() => {",
+			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
 			"  return (",
 			"    <${2:div}>",
 			"      <$3 />",
@@ -64,7 +64,7 @@
 		"body": [
 			"import { component$ } from '@builder.io/qwik';",
 			"",
-			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}:component} = component$(() => {",
+			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
 			"  return (",
 			"    <${2:div}>",
 			"      <$3 />",
@@ -427,9 +427,9 @@
 		"prefix": "q-create-api-$",
 		"description": "The powerful, part of Optimizer is that you can create your own APIs with $ suffix.",
 		"body": [
-			"import { component$, QRL, implicit$FirstArg, useStore } from '@builder.io/qwik';",
+			"import { component$, QRL, implicit$FirstArg, useStore, $ } from '@builder.io/qwik';",
 			"",
-			"export function ${1delay}Qrl<T>(fn: QRL<() => T>, delayInMs: number): Promise<T> {",
+			"export function ${1:useHook}Qrl<T>(fn: QRL<() => T>, delayInMs: number): Promise<T> {",
 			"   return new Promise((res) => {",
 			"      setTimeout(() => {",
 			"         res(fn());",

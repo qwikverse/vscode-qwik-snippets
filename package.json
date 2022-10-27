@@ -69,6 +69,18 @@
         "path": "./snippets/qwik-city.json"
       },
       {
+        "language": "javascriptreact",
+        "path": "./snippets/qwik-city.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "/snippets/qwik-city.json"
+      },
+      {
+        "language": "mdx",
+        "path": "/snippets/qwik-city.json"
+      },
+      {
         "language": "typescript",
         "path": "./snippets/mitosis.json"
       },

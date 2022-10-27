@@ -9,7 +9,7 @@
     ]
   },
   "onGet (typed)": {
-    "prefix": "q-onGet typed",
+    "prefix": "q-onGet-typed",
     "description": "onGet function for a route index",
     "body": [
       "export interface ${1:PageData} {",
