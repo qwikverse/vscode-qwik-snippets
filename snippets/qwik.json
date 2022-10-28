@@ -399,7 +399,7 @@
 			"export const App = component$(() => {",
 			"  return (",
 			"    <>",
-			"      button onClick$={async () => alert(await $('${1:Hello World!}').resolve())}>click me</button>",
+			"      <button onClick$={async () => alert(await $('${1:Hello World!}').resolve())}>click me</button>",
 			"    </>",
 			" );",
 			"});"

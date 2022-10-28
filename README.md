@@ -229,7 +229,17 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 > 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `qc-data`                | WIP                                                 |
+| `qc-onGet`                | onGet API route                                                 |
+| `qc-onGet-sample`                | onGet API route sample                                                |
+| `qc-onGet-in-component`                | onGet API route in a component                                            |
+| `qc-onPost`                | onPost API route                                                 |
+| `qc-onPut`                | onPut API route                                                 |
+| `qc-onPut-sample`                | onPut API route sample                                                |
+| `qc-onPatch`                | onPatch API route                                                 |
+| `qc-onDelete`                | onDelete API route                                                 |
+| `qc-redirect`                | redirect route                                                 |
+| `qc-redirect-sample`          | redirect route sample                                                 |
+| `qc-useEndpoint`          | add useEndpoint declaration                                                 |
 ### Authoring Content
 > Page content can be created using Qwik components. The component representing the content should be exported as a default export.
 > 

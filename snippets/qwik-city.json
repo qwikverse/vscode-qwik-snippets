@@ -238,107 +238,249 @@
     "prefix": "qc-nested-layout-structure",
     "description": "Add Nested Layout Structure",
     "body": [
-      "┌────────────────────────────────────────────────┐",
-      "│       src/routes/layout.tsx                    │",
-      "│  ┌──────────────────────────────────────────┐  │",
-      "│  │    src/routes/about/layout.tsx           │  │",
-      "│  │  ┌────────────────────────────────────┐  │  │",
-      "│  │  │ src/routes/about/index.tsx         │  │  │",
-      "│  │  │                                    │  │  │",
-      "│  │  └────────────────────────────────────┘  │  │",
-      "│  │                                          │  │",
-      "│  └──────────────────────────────────────────┘  │",
-      "│                                                │",
-      "└────────────────────────────────────────────────┘",
-      "src/",
-      "└── routes/",
-      "    ├── layout.tsx           # Parent layout",
-      "    └── about/",
-      "        ├── layout.tsx       # Child layout",
-      "        └── index.tsx        # https://example.com/about"
+      "// ┌────────────────────────────────────────────────┐",
+      "// │       src/routes/layout.tsx                    │",
+      "// │  ┌──────────────────────────────────────────┐  │",
+      "// │  │    src/routes/about/layout.tsx           │  │",
+      "// │  │  ┌────────────────────────────────────┐  │  │",
+      "// │  │  │ src/routes/about/index.tsx         │  │  │",
+      "// │  │  │                                    │  │  │",
+      "// │  │  └────────────────────────────────────┘  │  │",
+      "// │  │                                          │  │",
+      "// │  └──────────────────────────────────────────┘  │",
+      "// │                                                │",
+      "// └────────────────────────────────────────────────┘",
+      "// src/",
+      "// └── routes/",
+      "//     ├── layout.tsx           # Parent layout",
+      "//     └── about/",
+      "//         ├── layout.tsx       # Child layout",
+      "//         └── index.tsx        # https://example.com/about"
     ]
   },
   "Grouped Layout Structure": {
     "prefix": "qc-grouped-layout-structure",
     "description": "Common purpose routes are often placed into directories so they can share layouts, and so related source files are logically grouped next to each other. However, it may be desirable that the directory, which was used to group similar files and share layouts, is excluded from the public-facing URL. This is where \"grouped\" layouts come in (also referred to as a \"pathless\" layout route).",
     "body": [
-      "src/",
-      "└── routes/",
-      "    └── (account)/             # Notice the parentheses",
-      "        ├── layout.tsx         # Shared account layout",
-      "        └── profile/",
-      "            └── index.tsx      # https://example.com/profile",
-      "        └── settings/",
-      "            └── index.tsx      # https://example.com/settings"
+      "// src/",
+      "// └── routes/",
+      "//     └── (account)/             # Notice the parentheses",
+      "//         ├── layout.tsx         # Shared account layout",
+      "//         └── profile/",
+      "//             └── index.tsx      # https://example.com/profile",
+      "//         └── settings/",
+      "//             └── index.tsx      # https://example.com/settings"
     ]
   },
   "Named Layout Structure": {
     "prefix": "qc-named-layout-structure",
     "description": "At times related routes need to have drastically different layouts from their siblings. It is possible to define multiple layouts for different sibling routes. A single default layout and any number of named layouts. The child route can then request a specific named-layout. Qwik City defines the convention that layouts are within src/routes and the filename starts with layout. That's why the default layout is named layout.tsx. A named layout also starts with layout followed by a dash - and a unique name, such as layout-narrow.tsx.",
     "body": [
-      "src/",
-      "└── routes/",
-      "    ├── contact/",
-      "    │   └── index@narrow.tsx      # https://example.com/contact (Layout: layout-narrow.tsx)",
-      "    ├── layout.tsx                # Default layout",
-      "    ├── layout-narrow.tsx         # Default named layout",
-      "    └── index.tsx                 # https://example.com/ (Layout: layout.tsx)",
-      "https://example.com/",
-      "┌──────────────────────────────────────────────────┐",
-      "│       src/routes/layout.tsx                      │",
-      "│  ┌────────────────────────────────────────────┐  │",
-      "│  │    src/routes/index.tsx                    │  │",
-      "│  │                                            │  │",
-      "│  └────────────────────────────────────────────┘  │",
-      "│                                                  │",
-      "└──────────────────────────────────────────────────┘",
-      "https://example.com/contact",
-      "┌──────────────────────────────────────────────────┐",
-      "│       src/routes/layout-narrow.tsx               │",
-      "│  ┌────────────────────────────────────────────┐  │",
-      "│  │    src/routes/contact/index@narrow.tsx     │  │",
-      "│  │                                            │  │",
-      "│  └────────────────────────────────────────────┘  │",
-      "│                                                  │",
-      "└──────────────────────────────────────────────────┘"
+      "// src/",
+      "// └── routes/",
+      "//     ├── contact/",
+      "//     │   └── index@narrow.tsx      # https://example.com/contact (Layout: layout-narrow.tsx)",
+      "//     ├── layout.tsx                # Default layout",
+      "//     ├── layout-narrow.tsx         # Default named layout",
+      "//     └── index.tsx                 # https://example.com/ (Layout: layout.tsx)",
+      "// https://example.com/",
+      "// ┌──────────────────────────────────────────────────┐",
+      "// │       src/routes/layout.tsx                      │",
+      "// │  ┌────────────────────────────────────────────┐  │",
+      "// │  │    src/routes/index.tsx                    │  │",
+      "// │  │                                            │  │",
+      "// │  └────────────────────────────────────────────┘  │",
+      "// │                                                  │",
+      "// └──────────────────────────────────────────────────┘",
+      "// https://example.com/contact",
+      "// ┌──────────────────────────────────────────────────┐",
+      "// │       src/routes/layout-narrow.tsx               │",
+      "// │  ┌────────────────────────────────────────────┐  │",
+      "// │  │    src/routes/contact/index@narrow.tsx     │  │",
+      "// │  │                                            │  │",
+      "// │  └────────────────────────────────────────────┘  │",
+      "// │                                                  │",
+      "// └──────────────────────────────────────────────────┘"
     ]
   },
   "Top Layout Structure": {
     "prefix": "qc-top-layout-structure",
     "description": "The default is that a page will create its layout stack by climbing up each directory until it gets to the src/routes directory. If at any point it should not continue climbing up the directories you can use the \"top\" layout feature. A top layout means that the layout is always at the very top of the nested layout stack, and doesn't keep collecting parent layouts, even when there are parent directory layouts. A top layout is specified by ending the layout filename with !, such as layout!.tsx.",
     "body": [
-      "src/",
-      "└── routes/",
-      "    ├── layout.tsx              # Root layout",
-      "    └── docs/",
-      "        ├── layout!.tsx         # Docs layout",
-      "        ├── index.tsx           # https://example.com/docs",
-      "        └── api/",
-      "            └── index.tsx       # https://example.com/docs/api",
-      ""
+      "// src/",
+      "// └── routes/",
+      "//     ├── layout.tsx              # Root layout",
+      "//     └── docs/",
+      "//         ├── layout!.tsx         # Docs layout",
+      "//         ├── index.tsx           # https://example.com/docs",
+      "//         └── api/",
+      "//             └── index.tsx       # https://example.com/docs/api"
     ]
   },
   "onGet": {
     "prefix": "qc-onGet",
-    "description": "onGet function for a route index",
+    "description": "onGet API route",
     "body": [
-      "export const onGet: RequestHandler = (request) => {",
-      "  $0",
+      "export const onGet: RequestHandler = (request) => { $1 };"
+    ]
+  },
+  "onGet Sample": {
+    "prefix": "qc-onGet-sample",
+    "description": "onGet Sample",
+    "body": [
+      "// File: src/routes/product/[skuId]/details/index.tsx",
+      "import type { RequestHandler } from '@builder.io/qwik-city';",
+      "",
+      "interface ${1:ProductData} {",
+      "  skuId: string;",
+      "  price: number;",
+      "  description: string;",
+      "}",
+      "",
+      "export const on${2:Get}: RequestHandler<${1}> = async ({ params }) => {",
+      "  // put your DB access here, we are hard coding a response for simplicity.",
+      "  return {",
+      "    skuId: params.skuId,",
+      "    price: 123.45,",
+      "    description: `Description for ${params.skuId}`,",
+      "  };",
       "};"
+    ]
+  },
+  "onGet in A Component": {
+    "prefix": "qc-onGet-in-component",
+    "description": "onGet in A Component",
+    "body": [
+      "import { Resource, component$, useStore } from '@builder.io/qwik';",
+      "import type { RequestHandler } from '@builder.io/qwik-city';",
+      "import { useEndpoint } from \"@builder.io/qwik-city\";",
+      "",
+      "",
+      "interface ${1:ProductData} { ... }",
+      "export const on${2:Get}: RequestHandler<$1> = async ({ params }) => { ... };",
+      "",
+      "export default component$(() => {",
+      "  const productData = useEndpoint<ProductData>();",
+      "  return (",
+      "    <Resource",
+      "      value={productData}",
+      "      onPending={() => <div>Loading...</div>}",
+      "      onRejected={() => <div>Error</div>}",
+      "      onResolved={(product) => (",
+      "        <>",
+      "          <h1>Product: {product.skuId}</h1>",
+      "          <p>Price: {product.price}</p>",
+      "          <p>{product.description}</p>",
+      "        </>",
+      "      )}",
+      "    />",
+      "  );",
+      "});"
+    ]
+  },
+  "onPost": {
+    "prefix": "qc-onPost",
+    "description": "onPost API route",
+    "body": [
+      "export const onPost: RequestHandler = (request) => { $1 };"
+    ]
+  },
+  "onPut": {
+    "prefix": "qc-onPut",
+    "description": "onPut API route",
+    "body": [
+      "export const onPut: RequestHandler = (request) => { $1 };"
+    ]
+  },
+  "onPut Sample": {
+    "prefix": "qc-onPut-sample",
+    "description": "onPut Sample",
+    "body": [
+      "// File: src/routes/product/[skuId]/index.tsx",
+      "import type { RequestHandler } from '@builder.io/qwik-city';",
+      "",
+      "type ${0:EndpointData} = $1 | null;",
+      "",
+      "interface ${1:ProductData} {",
+      "  skuId: string;",
+      "  price: number;",
+      "  description: string;",
+      "}",
+      "export const on${2:Put}: RequestHandler<$0> = async ({ url, params, request, response }) => {",
+      "  // put your DB access here (hard coding a response for the simplicity)",
+      "",
+      "  // read data from request and perform DB update.",
+      "  // console.log(params.skuId);",
+      "  // console.log(request.method);",
+      "  // console.log(url.pathname);",
+      "",
+      "  // set response headers",
+      "  response.headers.append('Cache-Control', ' public, max-age=86400');",
+      "",
+      "  // return data to be access from `useEndpoint()`",
+      "  return {",
+      "    skuId: params.skuId,",
+      "    price: 123.45,",
+      "    description: `Description for ${params.skuId}`,",
+      "  };",
+      "};",
+      ""
+    ]
+  },
+  "onPatch": {
+    "prefix": "qc-onPatch",
+    "description": "onPatch API route",
+    "body": [
+      "export const onPatch: RequestHandler = (request) => { $1 };"
+    ]
+  },
+  "onDelete": {
+    "prefix": "qc-onDelete",
+    "description": "onDelete API route",
+    "body": [
+      "export const onDelete: RequestHandler = (request) => { $1 };"
     ]
   },
   "onGet (typed)": {
     "prefix": "qc-onGet-typed",
-    "description": "onGet function for a route index",
+    "description": "onGet API route",
     "body": [
       "export interface ${1:PageData} {",
       "  $2",
       "};",
       "",
       "export const onGet: RequestHandler<$1> = (request) => {",
-      "  $4",
+      "  $3",
       "};"
     ]
+  },
+  "Redirect Sample": {
+    "prefix": "qc-redirect-sample",
+    "body": [
+      "// File: src/routes/dashboard.js",
+      "import { component$ } from '@builder.io/qwik';",
+      "import { checkAuthorization } from '../auth'; // Your authorization code",
+      "import type { DashboardData } from '../types'; // Your types",
+      "",
+      "export const onGet: RequestHandler<DashboardData> = async ({ request, response }) => {",
+      "  const isAuthorized = checkAuthorization(request.headers.get('cookie'));",
+      "",
+      "  if (!isAuthorized) {",
+      "    // User is not authorized!",
+      "    // throw the redirect response to",
+      "    // relocate the user to the log-in page",
+      "    throw response.redirect('/login');",
+      "  } else {",
+      "    // ...",
+      "  }",
+      "};"
+    ],
+    "description": "Redirect Sample: Sometimes you want to redirect a user from the current page to another page. Let's say a user tries to go to a dashboard page but has not logged in yet. We want them to be redirected to a login page so they can be authenticated."
+  },
+  "Redirect": {
+    "prefix": "qc-redirect",
+    "description": "useEndpoint declaration",
+    "body": "response.redirect('${1:/login}', ${2:301});"
   },
   "useEndpoint": {
     "prefix": "qc-useEndpoint",
