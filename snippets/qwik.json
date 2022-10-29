@@ -215,12 +215,12 @@
 			"});",
 			"",
 			"return (",
-			"<Resource",
-			"value={resource}",
-			"onPending={() => <>Loading...</>}",
-			"onRejected={(error) => <>Error: {error.message}</>}",
-			"onResolved={(repos) => (<div></div>)}",
-			"/>",
+			"  <Resource",
+			"    value={resource}",
+			"    onPending={() => <>Loading...</>}",
+			"    onRejected={(error) => <>Error: {error.message}</>}",
+			"    onResolved={(repos) => (<div></div>)}",
+			"  />",
 			");"
 		]
 	},

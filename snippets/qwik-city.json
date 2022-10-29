@@ -485,6 +485,329 @@
   "useEndpoint": {
     "prefix": "qc-useEndpoint",
     "description": "useEndpoint declaration",
-    "body": "const $1 = useEndpoint<typeof onGet>();"
+    "body": "const ${1:endpoint} = useEndpoint<typeof ${2:onGet}>();"
+  },
+  "MDX": {
+    "prefix": "qc-mdx",
+    "body": [
+      "---",
+      "title: ${1:Qwik City - MDX}",
+      "contributors:",
+      "  - ${2:username}",
+      "---",
+      "",
+      "# ${3:MDX}",
+      "",
+      "${4:An alternative way to author content is using `.mdx` files ([Markdown JSX](https://mdxjs.com/)). These files are authored as Markdown, but they are compiled down to Qwik components. In addition to Markdown syntax, `.mdx` files can also refer to other components.}",
+      ""
+    ],
+    "description": "MDX"
+  },
+  "MDX with Qwik Component": {
+    "prefix": "qc-mdx-with-component",
+    "body": [
+      "---",
+      "# File: src/routes/some/path/index.mdx",
+      "title: ${1:Qwik City - MDX}",
+      "contributors:",
+      "  - ${2:username}",
+      "---",
+      "import { ${3:Counter} } from \"../../../components/counter/counter\";",
+      "",
+      "This is a simple hello world component.",
+      "",
+      "# ${4:MDX}",
+      "",
+      "An alternative way to author content is using `.mdx` files ([Markdown JSX](https://mdxjs.com/)). These files are authored as Markdown, but they are compiled down to Qwik components. In addition to Markdown syntax, `.mdx` files can also refer to other components.",
+      "<$3 />",
+      "",
+      "// File: src/components/counter/counter.tsx",
+      "import { component$, useStyles$, useStore } from '@builder.io/qwik';",
+      "",
+      "export const $3 = component$(() => {",
+      "  const ${4:store} = useStore({ ${5:count}: 0 });",
+      "",
+      "  return (",
+      "    <button class=\"counter\" type=\"button\" onClick$={() => store.count++}>",
+      "      Increment {store.count}",
+      "    </button>",
+      "  );",
+      "});"
+    ],
+    "description": "MDX with Qwik Component"
+  },
+  "Disabling default MDX plugins": {
+    "prefix": "qc-mdx-disable-default-plugins",
+    "body": [
+      "mdxPlugins: {",
+      "  remarkGfm: false,",
+      "  rehypeSyntaxHighlight: false,",
+      "  rehypeAutolinkHeadings: false,",
+      "},",
+      "mdx: {",
+      "  rehypePlugins: [",
+      "    // Plugins can now be added manually to use a different configuration",
+      "    [rehypeAutolinkHeadings, { behavior: 'wrap' }],",
+      "  ],",
+      "}"
+    ],
+    "description": "Disabling default MDX plugins"
+  },
+  "Importing other components": {
+    "prefix": "qc-component-import",
+    "body": [
+      "// File: src/routes/some/path/index.tsx",
+      "import { component$ } from '@builder.io/qwik';",
+      "import Heading from '../../../components/heading';",
+      "import SubComponent from './sub_component';",
+      "",
+      "export default component$(() => {",
+      "  return (",
+      "    <>",
+      "      <Heading />",
+      "      <h2>Hello World!</h2>",
+      "      <SubComponent />",
+      "    </>",
+      "  );",
+      "});",
+      "// File: src/components/heading.tsx",
+      "import { component$ } from '@builder.io/qwik';",
+      "",
+      "export default component$(() => {",
+      "  return <h1>Site Heading</h1>;",
+      "});",
+      "// File: src/routes/some/path/sub_component.tsx",
+      "import { component$ } from '@builder.io/qwik';",
+      "",
+      "export default component$(() => {",
+      "  return <div>Other component content.</div>;",
+      "});"
+    ],
+    "description": "Importing other components. You can build complex views by composing multiple components within each other. To do that import other components into your index.tsx file."
+  },
+  "Menu Structure": {
+    "prefix": "qc-menu-structure",
+    "body": [
+      "<!-- File: src/routes/some/menu.md -->",
+      "",
+      "# ${1:Docs}",
+      "",
+      "## ${2:Getting Started}",
+      "",
+      "- [${3:Introduction}](introduction/index.md)",
+      "",
+      "## ${4:Components}",
+      "",
+      "- [${5:Basics}](/docs/components/basics/index.mdx)"
+    ],
+    "description": "Menu Structure"
+  },
+  "Retrieve Menu Structure": {
+    "prefix": "qc-useContent",
+    "body": [
+      "const {${1:menus}} = useContent();"
+    ],
+    "description": "Retrieve Menu Structure"
+  },
+  "Using ContentMenu in a layout": {
+    "prefix": "qc-use-content-menu-in-layout",
+    "body": [
+      "import { component$, useContent, useLocation } from '@builder.io/qwik';",
+      "",
+      "export default component$(() => {",
+      "  const { menu } = useContent();",
+      "  const { pathname } = useLocation();",
+      "",
+      "  return (",
+      "    <div class=\"menu\">",
+      "      {menu",
+      "        ? menu.items?.map((item) => (",
+      "            <>",
+      "              <h5>{item.text}</h5>",
+      "              <ul>",
+      "                {item.items?.map((item) => (",
+      "                  <li>",
+      "                    <a",
+      "                      href={item.href}",
+      "                      class={{",
+      "                        'is-active': pathname === item.href,",
+      "                      }}",
+      "                    >",
+      "                      {item.text}",
+      "                    </a>",
+      "                  </li>",
+      "                ))}",
+      "              </ul>",
+      "            </>",
+      "          ))",
+      "        : null}",
+      "    </div>",
+      "  );",
+      "});"
+    ],
+    "description": "Using ContentMenu in a layout: While useContent() can be invoked from any component that is part of the current route. It is typically used in a layout component (or a component used by layout) to render the menu."
+  },
+  "Qwikify a react component": {
+    "prefix": "qc-qwikify-react-component",
+    "body": [
+      "import { component$ } from '@builder.io/qwik';",
+      "import { qwikify$ } from '@builder.io/qwik-react';",
+      "import { Alert, Button } from '@mui/material';",
+      "",
+      "export const MUIButton = qwikify$(Button);",
+      "export const MUIAlert = qwikify$(Alert);",
+      "",
+      "export default component$(() => {",
+      "  return (",
+      "    <>",
+      "      <MUIButton client:hover>",
+      "        Hello this is a button",
+      "      </MUIButton>",
+      "",
+      "      <MUIAlert severity=\"warning\">",
+      "        This is a warning from Qwik",
+      "      </MUIAlert>",
+      "    </>",
+      "  );",
+      "});"
+    ],
+    "description": "Qwikify a react component"
+  },
+  "Qwikify React Event": {
+    "prefix": "qc-react-event",
+    "body": [
+      "import { Slider } from '@mui/material';",
+      "import { qwikify$ } from '@builder.io/qwik-react';",
+      "const ${1:MUISlider} = qwikify$(${2:Slider});",
+      "",
+      "<$1",
+      "  client:${3:visible}",
+      "  on${4:Change}$={() => console.log('value changed')}",
+      "/>"
+    ],
+    "description": "Qwikify React Event. Events in React are handled by passing a function as a property to the component."
+  },
+  "Qwikify eagerness": {
+    "prefix": "qc-qwikify-eagerness",
+    "body": [
+      "export const ${1:MUIButton} = qwikify$(${2:Button}, { eagerness: '${3:hover}' });"
+    ],
+    "description": "Qwikify eagerness. [hover, visible, idle, load]"
+  },
+  "Interactivity Client Load": {
+    "prefix": "qc-client-load",
+    "body": [
+      "client:${1:load}"
+    ],
+    "description": "Add client:load interactivity. The component eagerly hydrates when the document loads."
+  },
+  "Interactivity Client Idle": {
+    "prefix": "qc-client-idle",
+    "body": [
+      "client:${1:idle}"
+    ],
+    "description": "Add client:idle interactivity. The component eagerly hydrates when the browser first become idle, ie, when everything important as already run before."
+  },
+  "Interactivity Client Visible": {
+    "prefix": "qc-client-visible",
+    "body": [
+      "client:${1:visible}"
+    ],
+    "description": "Add client:visible interactivity. The component eagerly hydrates when it becomes visible in the viewport."
+  },
+  "Interactivity Client Hover": {
+    "prefix": "qc-client-hover",
+    "body": [
+      "client:${1:hover}"
+    ],
+    "description": "Add client:hover interactivity. The component eagerly hydrates when the mouse is over the component."
+  },
+  "Interactivity Client Signal": {
+    "prefix": "qc-client-signal",
+    "body": [
+      "export default component$(() => {",
+      "  const hydrateReact = useSignal$(false);",
+      "  return (",
+      "    <>",
+      "      <button onClick$={() => hydrateReact.value = true}>",
+      "        Hydrate Slider when click",
+      "      </button>",
+      "",
+      "      <MUISlider client:signal={hydrateReact}></MUISlider>",
+      "    </>",
+      "  );",
+      "});"
+    ],
+    "description": "Add client:signal interactivity. This is an advanced API that allows to hydrate the component whenever the passed signal becomes true"
+  },
+  "Interactivity Client Event": {
+    "prefix": "qc-client-event-click",
+    "body": [
+      "client:${1:click}"
+    ],
+    "description": "Add client:event interactivity: [click, blur, etc].The component eagerly hydrates when specified DOM events are dispatched."
+  },
+  "Interactivity Client Only": {
+    "prefix": "qc-client-only",
+    "body": [
+      "client:${1:only}"
+    ],
+    "description": "Add client:only interactivity. When true, the component will not run in SSR, only in the browser."
+  },
+  "Partytown": {
+    "prefix": "qc-partytown",
+    "body": [
+      "<QwikPartytown forward={[\"${1:dataLayer.push}\"]} />;",
+      ""
+    ],
+    "description": "Add Partytown"
+  },
+  "Partytown Sample": {
+    "prefix": "qc-partytown-sample",
+    "body": [
+      "// npm run qwik add partytown",
+      "",
+      "// file root.tsx",
+      "",
+      "import { QwikPartytown } from './components/partytown/partytown';",
+      "",
+      "export default component$(() => {",
+      "  return (",
+      "    <QwikCity>",
+      "      <head>",
+      "        <meta charSet=\"utf-8\" />",
+      "        <QwikPartytown forward={[\"${1:dataLayer.push}\"]} />;",
+      "",
+      "        <script",
+      "        async",
+      "        type=\"text/partytown\"",
+      "        src=\"https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX\"",
+      "        />;",
+      "",
+      "      </head>",
+      "      <body lang=\"en\">",
+      "      </body>",
+      "    </QwikCity>",
+      "  );",
+      "});"
+    ],
+    "description": "Partytown"
+  },
+  "Tailwind": {
+    "prefix": "qc-tailwind",
+    "body": [
+      "// npm run qwik add tailwind",
+      "// The previous command updates your app and sets the correct configuration in `vite.config.ts`.",
+      "// It also adds new files inside to your `src` folder.",
+      "// - `postcss.config.js` ",
+      "// - `tailwind.config.js`  ",
+      "",
+      "// # global.css file",
+      "",
+      "@tailwind base;",
+      "@tailwind components;",
+      "@tailwind utilities;"
+    ],
+    "description": "Add Tailwind css"
   }
 }
