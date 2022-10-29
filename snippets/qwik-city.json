@@ -809,5 +809,135 @@
       "@tailwind utilities;"
     ],
     "description": "Add Tailwind css"
+  },
+  "Fetch Event Dispatch": {
+    "prefix": "qc-prefetch-event",
+    "body": [
+      "dispatchEvent(new CustomEvent(\"${1:qprefetch}\", { detail: {",
+      "  ${2:bundles}: [...]",
+      "}}));"
+    ],
+    "description": "Fetch Event Dispatch"
+  },
+  "Prefetch Service Worker": {
+    "prefix": "qc-prefetch-service-worker",
+    "body": [
+      "import { setupServiceWorker } from '@builder.io/qwik-city/service-worker';",
+      "",
+      "setupServiceWorker();",
+      "",
+      "addEventListener('install', () => self.skipWaiting());",
+      "addEventListener('activate', () => self.clients.claim());"
+    ],
+    "description": "Prefetch Service Worker"
+  },
+  "Prefetch Dynamic Imports": {
+    "prefix": "qc-prefetch-dynamic-imports",
+    "body": [
+      "const module = await import('/build/q-abc.js');"
+    ],
+    "description": "Prefetch Dynamic Imports"
+  },
+  "Static Side Generation": {
+    "prefix": "qc-ssg",
+    "body": [
+      "// file: src/entry.static.tsx",
+      "import { qwikCityGenerate } from '@builder.io/qwik-city/static/node';",
+      "import render from './entry.ssr';",
+      "import { fileURLToPath } from 'node:url';",
+      "import { join } from 'node:path';",
+      "",
+      "qwikCityGenerate(render, {",
+      "  origin: 'https://qwik.builder.io',",
+      "  outDir: join(fileURLToPath(import.meta.url), '..', '..', 'dist'),",
+      "});"
+    ],
+    "description": "Static Side Generation"
+  },
+  "Static Side Generation Scripts": {
+    "prefix": "qc-ssg-scripts",
+    "scope": "json",
+    "body": [
+      "// package.json",
+      "\"build\": \"npm run build.client && npm run build.ssr && npm run build.ssg\",",
+      "\"build.ssg\": \"vite build --ssr src/entry.static.tsx\","
+    ],
+    "description": "Static Side Generation Scripts"
+  },
+  "Static Side Generation Dynamic Routes": {
+    "prefix": "qc-ssg-dynamic-routes",
+    "body": [
+      "import type { StaticGenerateHandler } from '@builder.io/qwik-city';",
+      "",
+      "export default component$(() => {",
+      "  const { params } = useLocation();",
+      "",
+      "  return <div>Example: {params.id}</div>;",
+      "});",
+      "",
+      "export const onStaticGenerate: StaticGenerateHandler = () => {",
+      "  const ids = [...]; // id data load implementation",
+      "",
+      "  return {",
+      "    params: ids.map((id) => {",
+      "      return { id };",
+      "    }),",
+      "  };",
+      "};"
+    ],
+    "description": "Static Side Generation Dynamic Routes"
+  },
+  "Static Document Head": {
+    "prefix": "qc-static-document-head",
+    "body": [
+      "// File: src/routes/product/[skuId]/index.tsx",
+      "import { component$ } from '@builder.io/qwik';",
+      "import type { DocumentHead } from '@builder.io/qwik-city';",
+      "",
+      "export default component$(() => {...});",
+      "",
+      "export const head: DocumentHead = {",
+      "  title: 'Product Details',",
+      "  meta: [...],",
+      "  links: [...],",
+      "  styles: [...],",
+      "};"
+    ],
+    "description": "Static Document Head"
+  },
+  "Dynamic Document Head": {
+    "prefix": "qc-dynamic-document-head",
+    "body": [
+      "import { component$ } from '@builder.io/qwik';",
+      "import type { DocumentHead } from '@builder.io/qwik-city';",
+      "",
+      "type EndpointData = ProductData | null;",
+      "",
+      "interface ProductData {",
+      "  skuId: string;",
+      "  price: number;",
+      "  description: string;",
+      "}",
+      "",
+      "export const onGet: RequestHandler<EndpointData> = async ({ params }) => { ... };",
+      "",
+      "export default component$(() => {...});",
+      "",
+      "export const head: DocumentHead<EndpointData> = ({ data }) => {",
+      "  return {",
+      "    title: `Product - ` + data.description",
+      "  };",
+      "};"
+    ],
+    "description": "Dynamic Document Head"
+  },
+  "Resolved Document Head": {
+    "prefix": "qc-resolved-document-head",
+    "body": [
+      "export const head: DocumentHead = {",
+      "  title: `Foo`,",
+      "};"
+    ],
+    "description": "Resolved Document Head"
   }
 }
