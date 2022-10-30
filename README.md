@@ -101,6 +101,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 
 > Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element.
 
+
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | Basic Qwik Component                                                 |
@@ -109,6 +110,11 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | `q-component-compose`        | Qwik Composing Components with child component                       |
 | `q-component-with-binding`   | Qwik Component with binding                                          |
 | `q-component-with-inline-component` | Qwik Component with inline component                          |
+| `q-slot` | Add slot component                          |
+| `q-ssr-stream-block>` | Add an SSR Stream Block component                          |
+| `q-ssr-stream` | Add an SSR Stream component                          |
+| `q-fragment` | Add fragment component                          |
+
 <br>
 
 <a href="#toc"><small>Back to Top</small>ꜛ</a>
