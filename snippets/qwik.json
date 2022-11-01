@@ -443,7 +443,7 @@
 		"prefix": "q-create-api-$",
 		"description": "The powerful, part of Optimizer is that you can create your own APIs with $ suffix.",
 		"body": [
-			"import { QRL, implicit$FirstArg, useStore, $ } from '@builder.io/qwik';",
+			"import { QRL, implicit$FirstArg } from '@builder.io/qwik';",
 			"",
 			"export function ${1:useHook}Qrl<T>(fn: QRL<() => T>, delayInMs: number): Promise<T> {",
 			"   return new Promise((res) => {",
