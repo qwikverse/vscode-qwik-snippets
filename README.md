@@ -13,6 +13,9 @@ Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Q
 <a href='http://badge.fury.io/js/vscode-qwik-snippets'>
 <img src='https://badge.fury.io/js/vscode-qwik-snippets.svg' alt='Qwik Snippets'>
 </a>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 </div>
 
 <details>
@@ -49,6 +52,7 @@ Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Q
 - [Installation](#installation)
 - [Contributing](#contributing)
 - [Related Links](#related-links)
+- [Contributors](#contributors)
 - [Issues](#issues)
 
 </details>
@@ -383,7 +387,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 <br>
 
 ## Qwik UI Snippets
-
+> Qwik UI Snippets from 
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
@@ -443,6 +447,17 @@ We love contributions! Check out our [contributing docs](./contributing/CONTRIBU
 - [Awesome Qwik](https://github.com/qwik-design/awesome-qwik)
   
 <a href="#toc"><small>Back to Top</small>ꜛ</a>
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## Issues
 

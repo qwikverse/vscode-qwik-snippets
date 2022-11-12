@@ -96,6 +96,22 @@
       {
         "language": "javascript",
         "path": "./snippets/partytown.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/qwik-ui.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/qwik-ui.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/qwik-ui.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "/snippets/qwik-ui.json"
       }
     ]
   },

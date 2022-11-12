@@ -1,0 +1,9 @@
+{
+    "Alert": {
+        "prefix": "qui-alert",
+        "description": "Description",
+        "body": [
+          "sample alert"
+        ]
+      }
+  }
