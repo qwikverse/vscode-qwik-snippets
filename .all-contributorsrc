@@ -1,0 +1,40 @@
+{
+  "projectName": "vscode-qwik-snippets",
+  "projectOwner": "qwik.design",
+  "repoType": "github",
+  "repoHost": "https://github.com/qwik-design/vscode-qwik-snippets",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "reemardelarosa",
+      "name": "John Reemar Dela Rosa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4918140?v=4",
+      "profile": "https://github.com/reemardelarosa",
+      "contributions": [
+        "doc",
+        "code",
+        "design",
+        "content",
+        "maintenance",
+        "ideas"
+      ]
+    },
+    {
+      "login": "the-r3aper7",
+      "name": "Sai Srikar Dumpeti",
+      "avatar_url": "https://avatars.githubusercontent.com/u/80447788?v=4",
+      "profile": "https://github.com/the-r3aper7",
+      "contributions": [
+        "doc",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "linkToUsage": true
+}
