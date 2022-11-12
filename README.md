@@ -13,9 +13,10 @@ Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Q
 <a href='http://badge.fury.io/js/vscode-qwik-snippets'>
 <img src='https://badge.fury.io/js/vscode-qwik-snippets.svg' alt='Qwik Snippets'>
 </a>
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+<a href='#contributors'>
+<img src='https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square' alt='Contributors'>
+</a>
+
 </div>
 
 <details>
