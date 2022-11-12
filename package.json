@@ -37,7 +37,9 @@
     "changelog": "auto-changelog",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. .",
-    "release": "npx bumpp --commit --tag --push"
+    "release": "npx bumpp --commit --tag --push",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "contributes": {
     "snippets": [
@@ -116,6 +118,7 @@
     ]
   },
   "devDependencies": {
+    "all-contributors-cli": "^6.24.0",
     "auto-changelog": "^2.4.0"
   }
 }
