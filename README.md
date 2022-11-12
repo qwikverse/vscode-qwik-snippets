@@ -43,6 +43,7 @@ Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Q
   - [Prefetching](#prefetching)
   - [Static Site Generation](#static-site-generation)
   - [Head](#head)
+- [Qwik UI Snippets](#qwik-ui-snippets)
 - [Mitosis Snippets](#mitosis-snippets)
 - [Partytown Snippets](#partytown-snippets)
 - [Installation](#installation)
@@ -380,6 +381,15 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 <a href="#toc"><small>Back to Top</small>ꜛ</a>
 
 <br>
+
+## Qwik UI Snippets
+
+
+| Snippet                      | Purpose                                                              |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `qui-xxx`                | WIP                                                            |
+
+<a href="#toc"><small>Back to Top</small>ꜛ</a>
 
 ## Mitosis Snippets
 
