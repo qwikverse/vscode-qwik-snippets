@@ -10,30 +10,9 @@
 			"});"
 		]
 	},
-	"Qwik Bind": {
-		"scope": "html",
-		"prefix": "q-bind",
-		"description": "Add binding expression to element",
-		"body": [
-			"{${1:data.property}}"
-		]
-	},
-	"Qwik Component with binding": {
-		"prefix": "q-component-with-binding",
-		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. The purpose of components is to merge data with the JSX template. You use the {expression} to inject data into a template. Expressions are placed either as a text node or attribute on an element.",
-		"body": [
-			"import { component$ } from '@builder.io/qwik';",
-			"",
-			"",
-			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
-			"  const ${2:name} = '${3:Qwik}';",
-			"  return <${4:div}>Hello {${2}}!</$4>",
-			"});"
-		]
-	},
 	"Qwik Composing Components": {
-		"prefix": "q-component-compose",
-		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. Components are composed together to build applications.",
+		"prefix": "q-component-with-child",
+		"description": "Create component with a child",
 		"body": [
 			"import { component$ } from '@builder.io/qwik';",
 			"",
@@ -48,54 +27,6 @@
 			"export const ${3:Child} = component$(() => {",
 			"  return <${4:div}>${5:Hello Qwik Child Component!}</$4>",
 			"};"
-		]
-	},
-	"Qwik Inline Lite Component": {
-		"prefix": "q-inline-lite-component",
-		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. If you want to ensure a component loads with another component, you create an inline component. Inline components load as a part of the parent component and are equivalent to how most other frameworks deal with components. ",
-		"body": [
-			"export const ${1:lite} = () => {",
-			"  return <${2:div}>${3:Hello Qwik Inline Component!}</$2>",
-			"};"
-		]
-	},
-	"Qwik Component with Inline Component": {
-		"prefix": "q-component-with-inline-component",
-		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. If you want to ensure a component loads with another component, you create an inline component. Inline components load as a part of the parent component and are equivalent to how most other frameworks deal with components. ",
-		"body": [
-			"import { component$ } from '@builder.io/qwik';",
-			"",
-			"export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
-			"  return (",
-			"    <${2:div}>",
-			"      <$3 />",
-			"    </${2}>",
-			"  );",
-			"});",
-			"",
-			"export const ${3:Inline} = () => {",
-			"  return <${4:div}>${5:Hello Qwik Inline Component!}</$4>",
-			"};"
-		]
-	},
-	"Qwik Component with props": {
-		"prefix": "q-component-with-props",
-		"description": "Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element. ",
-		"body": [
-			"import { component$, useSignal } from '@builder.io/qwik';",
-			"",
-			"export interface ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}Props {",
-			"  $2",
-			"}",
-			"",
-			"export const $1 = component$<$1Props>((props) => {",
-			"  const ${2:count} = useSignal(0);",
-			"  return (",
-			"    <${3:div} on${4:Click}$={(event) => {$5}}>",
-			"      $6",
-			"    </${3}>",
-			"  );",
-			"});"
 		]
 	},
 	"Qwik component with store and props": {
@@ -180,14 +111,14 @@
 		]
 	},
 	"Qwik Signal": {
-		"prefix": "q-useSignal",
+		"prefix": "q-use-signal",
 		"description": "useSignal() declaration",
 		"body": [
 			"const ${1:foo} = useSignal($2);"
 		]
 	},
 	"Qwik Store": {
-		"prefix": "q-useStore",
+		"prefix": "q-store",
 		"description": "useStore() declaration",
 		"body": [
 			"const ${1:state} = useStore({",
@@ -195,26 +126,48 @@
 			"});"
 		]
 	},
-	"Qwik Recursive Store": {
-		"prefix": "q-useStore-recursive",
-		"description": "recursive useStore() declaration",
+	"q-store-with-methods": {
+		"prefix": "q-store-with-methods",
+		"description": "Creates a Qwik component with a store methods.",
 		"body": [
-			"const ${1:store} = useStore({ ${2:counter}: { ${3:count}: ${4:0} } }, { recursive: true });"
+		  "import { component$, useStore, $, type QRL } from \"@builder.io/qwik\";",
+		  "",
+		  "type ${1:StoreType} = {",
+		  "  count: number;",
+		  "  increment: QRL<(this: ${1:StoreType}) => void>;",
+		  "};",
+		  "",
+		  "export default component$(() => {",
+		  "  const state = useStore<${1:StoreType}>({",
+		  "    count: 0,",
+		  "    increment: $(function (this: ${1:StoreType}) {",
+		  "      this.count++;",
+		  "    }),",
+		  "  });",
+		  "",
+		  "  return (",
+		  "    <>",
+		  "      <button onClick$={() => state.increment()}>Increment</button>",
+		  "      <p>Count: {state.count}</p>",
+		  "    </>",
+		  "  );",
+		  "});"
 		]
 	},
-	"useWatch": {
-		"prefix": "q-useWatch",
-		"description": "useWatch$() function hook",
+	"q-use-computed": {
+		"prefix": "q-use-computed",
+		"description": "Creates a Qwik useComputed$ hook.",
 		"body": [
-			"useWatch$(({ track }) => {",
-			"  track(() => $1);",
-			"  $0",
-			"});",
-			""
+			"import { useComputed$ } from '@builder.io/qwik';",
+			"",
+			"const ${1:computedValue} = useComputed$(() => {",
+			"  ${2:// Add your computation logic here}",
+			"  return ${3:result};",
+			"});"
 		]
 	},
 	"useResource": {
-		"prefix": "q-useResource",
+		"prefix": "q-resource",
 		"description": "useResource$() declaration. Qwik provides useResource$() and <Resource> to help you fetch and display data from the server. When fetching data the application can be in one of three states: pending: the data is being fetched from the server => Render loading... indicator, resolved: the data has successfully been fetched from the server => Render the data, rejected: the data could not be fetched from the server due to an error => Render the error.Use useResource$() function to set up how the data is fetched from the server. Use <Resource> to display the data.",
 		"body": [
 			"const ${1:resource} = useResource$(({ track, cleanup }) => {",
@@ -229,6 +182,35 @@
 			"    onResolved={(repos) => (<div></div>)}",
 			"  />",
 			");"
+		]
+	},
+	"q-useTask": {
+		"prefix": "q-useTask",
+		"description": "Creates a Qwik useTask$ hook that runs once when the component mounts.",
+		"body": [
+			"useTask$(async () => {",
+			"  // A task without `track` any state effectively behaves like a `on mount` hook.",
+			"  console.log('Runs once when the component mounts in the server OR client.');",
+			"});"
+		]
+	},
+	"q-useTask-with-track": {
+		"prefix": "q-useTask",
+		"description": "Creates a Qwik useTask$ hook that runs once when the component mounts.",
+		"body": [
+			"useTask$(({ track }) => {",
+			"  track(() => ${1:text.value});",
+			"  const value = ${1:text.value};",
+			"});"
+		]
+	},
+	"q-useVisibleTask": {
+		"prefix": "q-useVisibleTask",
+		"description": "Creates a Qwik useVisibleTask$ hook that runs run only on the browser and after rendering",
+		"body": [
+			"useVisibleTask$(() => {",
+			"  ${1}",
+			"});"
 		]
 	},
 	"createContext": {
@@ -258,47 +240,6 @@
 		"description": "To retrieve the context and use it in any component",
 		"body": [
 			"const ${1:context} = useContext(${2:Context});"
-		]
-	},
-	"useMount": {
-		"prefix": "q-useMount",
-		"description": "useMount$() function hook. Hook that executes a callback when the component is mounted into the rendering tree.",
-		"body": [
-			"useMount$(() => {",
-			"  $0",
-			"});",
-			""
-		]
-	},
-	"useServerMount": {
-		"prefix": "q-useServerMount",
-		"description": "useServerMount$() function hook: Hook that executes on the component mount when in a server environment. This is useful because server often has different APIs for retrieving data.",
-		"body": [
-			"useServerMount$(() => {",
-			"  $0",
-			"});",
-			""
-		]
-	},
-	"useClientEffect": {
-		"prefix": "q-useClientEffect",
-		"description": "Use useClientEffect$() to execute code after the component is resumed. This is useful for setting up timers or streams on the client when the application is resumed.",
-		"body": [
-			"useClientEffect$(({ track }) => {",
-			"  track(() => {$0});",
-			"});",
-			""
-		]
-	},
-	"useRef": {
-		"prefix": "q-useRef",
-		"description": "Use useRef() to get a hold of DOM elements created by the component.",
-		"body": [
-			"const ${1:outputRef} = useRef(${2});",
-			"",
-			"return (",
-			"<div ref={$1}>",
-			");"
 		]
 	},
 	"Basic Projection": {
@@ -356,7 +297,7 @@
 		"description": "Qwik is responsible for loading the global style information when a component is mounted. Use useStyles$() to tell Qwik which style should be loaded.",
 		"body": [
 			"import { useStyles$ } from '@builder.io/qwik';",
-			"import styles from './app.css';",
+			"import styles from './app.css?inline';",
 			"",
 			"useStyles$(styles);"
 		]
