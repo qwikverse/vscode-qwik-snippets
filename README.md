@@ -26,17 +26,13 @@ Language and Ecosystem Support for <a href='https://github.com/BuilderIO/qwik'>Q
 <summary id="toc">Table of Contents</summary>
 
 <!-- - [Qwik Essentials](#qwik-essentials) -->
-- [What's new?](#whats-new)
-  - [Qwik City Authoring Content](#qwik-city-authoring-content)
 - [Usage](#usage)
 - [Qwik Snippets](#qwik-snippets)
   - [Components](#components)
+  - [State](#state)
   - [Events](#events)
-  - [Stores](#stores)
-  - [Props](#props)
-  - [Reactivity](#reactivity)
+  - [Task and Lifecycle](#task-and-lifecycle)
   - [Context](#context)
-  - [Lifecycle Hooks](#lifecycle-hooks)
   - [Projection](#projection)
   - [Styling](#styling)
   - [$ Optimizer](#-optimizer)
@@ -76,18 +72,6 @@ Check out the [Qwik Essentials extension](https://marketplace.visualstudio.com/i
 
 <br>
 
-## What's new?
-
-### [Qwik City Authoring Content](#authoring-content)
-
-| Snippet                      | Purpose                                                              |
-| ---------------------------- | -------------------------------------------------------------------- |
-| `qc-mdx`                | Add mdx content                               |
-| `qc-mdx-with-component` | Add mdx with qwik component                               |
-| `qc-mdx-disable-default-plugins` | Disabling default MDX plugins included    |
-| `qc-menu-structure` | Adding menu structure|
-| `qc-useContent` | Retrieve menu structure|
-
 <a href="#toc"><small>Back to Top</small>ꜛ</a>
 ## Usage
 
@@ -108,17 +92,11 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 
 ### Components
 
-> Components are the building blocks of a Qwik application. Components are declared using component$() and at a minimum need to return a JSX Element.
-
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-component`                | Basic Qwik Component                                                 |
-| `q-bind`                     | Add binding expression                                               |
-| `q-inline-lite-component`         | Qwik  inline component                                               |
-| `q-component-compose`        | Qwik Composing Components with child component                       |
-| `q-component-with-binding`   | Qwik Component with binding                                          |
-| `q-component-with-inline-component` | Qwik Component with inline component                          |
+| `q-component-with-child`        | Qwik Composing Components with child component                       |
 | `q-slot` | Add slot component                          |
 | `q-ssr-stream-block>` | Add an SSR Stream Block component                          |
 | `q-ssr-stream` | Add an SSR Stream component                          |
@@ -126,63 +104,43 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 
 <br>
 
+### State
+| Snippet                      | Purpose                                                              |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `q-signal`                | Adds useSignal()             |
+| `q-store`                | Adds useStore()                       |
+| `q-resource`              | useResource$() declaration          |
+| `q-store-with-methods`                | Creates a Qwik component with a store methods()                       |
+| `q-component-with-store-and-props` | Qwik component with props and store   |
+
 <a href="#toc"><small>Back to Top</small>ꜛ</a>
 
 ### Events
-  
-> A key feature of any framework is making it easy to listen to user events.
-> >
-> Qwik can listen on a variety of events by placing an on<Eventname>$ attribute on an element that subscribes to the corresponding browser event.
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-onClick`                  | Add an onClick event                                                 |
 | `q-onBlur`                   | Add an onBlur event                                                  |
 | `q-preventdefault`           | Add prevent default for click event                                  |
-| `q-useOn`                    | Add an event on specific event on current host element               |
+| `q-useOn`                    | Add an event on specific event on current element               |
 | `q-useOnDocument`            | Add an event on specific event on document.                          |
 | `q-useOnWindow`              | Add an event on specific event on window.                            |
 
 <a href="#toc"><small>Back to Top</small>ꜛ</a>
-### Stores
->Qwik tracks application state for two reasons:
->
-> 1. To serialize data when the application pauses on the server, and deserialize as the application resumes on the client.
-> 
-> 1. To create subscriptions on stores so that Qwik knows which components to re-render. If Qwik didn't track subscriptions, it would have to re-render the whole application - which would defeat the purpose of lazy-loading.
+
+
+### Task and Lifecycle
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
-| `q-useStore`                | Add useStore()                       |
-| `q-useStore-recursive`                | Add recursive useStore()                       |
-| `q-component-with-store-and-props` | Qwik component with props and store   |
+| `q-useTask`                 | adds `useTask$()`: it registers a hook to be executed upon component creation, it will run at least once either in the server or in the browser |
+| `q-useTask-with-track`                 | adds `useTask$()`: it  re-run a task when a component state changes. |
+| `q-useVisibleTask`                 | adds `useVisibleTask$()`: it that runs run only on the browser and after rendering |
 
-<a href="#toc"><small>Back to Top</small>ꜛ</a>
-### Props
->Web applications are built up from components in the same way that general applications are built up from functions.
-> 
-> Composing functions would not be very useful if you couldn't pass in parameters. In the same way that functions have parameters, components have "props". A component uses props to pass data to its children components.
-
-| Snippet                      | Purpose                                                              |
-| ---------------------------- | -------------------------------------------------------------------- |
-| `q-component-with-props`     | Qwik component with props           |
-
-<a href="#toc"><small>Back to Top</small>ꜛ</a>
-
-### Reactivity
-> Reactivity is a key component of Qwik. Reactivity allows Qwik to track which components are subscribed to which state. This information enables Qwik to invalidate only the relevant component on state change, which minimizes the number of components that need to be re-rendered. Without reactivity, a state change would require re-rendering from the root component, which would force the whole component tree to be eagerly downloaded.
-
-| Snippet                      | Purpose                                                              |
-| ---------------------------- | -------------------------------------------------------------------- |
-| `q-useSignal`                | useSignal() declaration             |
-| `q-useWatch`                 | useWatch$() function hook          |
-| `q-useResource`              | useResource$() declaration          |
 
 <a href="#toc"><small>Back to Top</small>ꜛ</a>
 
 ### Context
-> Use context to pass data to child components without explicitly passing it through components (known as prop drilling). Context is useful to share data that is needed throughout the application components. For example styling information, application state, or currently logged-in user.
-
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `q-createContext`   |     This creates a serializable ID for the context. Make sure that this id is unique within your application       |
@@ -191,31 +149,8 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 
 <a href="#toc"><small>Back to Top</small>ꜛ</a>
 
-### Lifecycle Hooks
-> Qwik is resumable. Resumability means that the application starts up on the server and then the application is transferred to the client. On the client, the application continues execution from where it left off. The implication of this is that a component may be created on the server and destroyed on the client. This means that the component's `useMount$()` method may execute on the server but its `useCleanup$()` method may execute on the client.
-> 
-> When using lifecycle hooks, you must adhere to the following rules:
-> - They can only be called in `component$`
-> - They can only be called at the root level of a function / arrow function context, not inside of branches or conditional blocks
-> - They can only be called from another `use*$` method, allowing for composition
-
-
-| Snippet                      | Purpose                                                              |
-| ---------------------------- | -------------------------------------------------------------------- |
-| `q-useMount`                 | `useMount$()` function hook. Hook that executes a callback when the component is mounted into the rendering tree.                           |
-| `q-useServerMount`           | `useServerMount$()` function hook: Hook that executes on the component mount when in a server environment. This is useful because server often has different APIs for retrieving data.                           |
-| `q-useClientEffect`          | Use `useClientEffect$()` to execute code after the component is resumed. This is useful for setting up timers or streams on the client when the application is resumed.       |
-| `q-useWatch`                 | Use `useWatch$()` to execute a function before the initial render and whenever the tracking values change. The function executes before rendering, but it can't delay rendering, so if `useWatch$()` is asynchronous, the rendering will happen before the `useWatch$()` is fully executed.            |
-| `q-useRef`                 | Use `useRef()` to get a hold of DOM elements created by the component.     |
-| `q-useOn`                  | Add an event on specific event on current host element   |
-| `q-useOnDocument`            | Add an event on specific event on document.          |
-| `q-useOnWindow`              | Add an event on specific event on window.         |
-
-<a href="#toc"><small>Back to Top</small>ꜛ</a>
 
 ### Projection
-> Projection is a way of passing content to a child component that in turn controls where the content is rendered. Projection is a collaboration between the parent and child component. The parent component decides what is the content that needs to be rendered, child component decides where and if the content should be rendered.
-
 
 | Snippet                      | Purpose                                                              |
 | ---------------------------- | -------------------------------------------------------------------- |
